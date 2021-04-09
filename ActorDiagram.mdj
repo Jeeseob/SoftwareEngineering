@@ -13561,7 +13561,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 371,
-											"top": 265,
+											"top": 217,
 											"height": 13
 										},
 										{
@@ -13572,7 +13572,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 597,
-											"top": 431,
+											"top": 407,
 											"width": 1287,
 											"height": 13,
 											"text": "SM Camping"
@@ -13586,7 +13586,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 371,
-											"top": 265,
+											"top": 217,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -13600,14 +13600,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 371,
-											"top": 265,
+											"top": 217,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 592,
-									"top": 424,
+									"top": 400,
 									"width": 1297,
 									"height": 25,
 									"stereotypeLabel": {
@@ -13626,7 +13626,7 @@
 							],
 							"font": "Arial;13;0",
 							"left": 592,
-							"top": 424,
+							"top": 400,
 							"width": 1297,
 							"height": 729,
 							"nameCompartment": {
@@ -16373,9 +16373,9 @@
 										"$ref": "AAAAAAF4tCc2CioPonE="
 									},
 									"font": "Arial;13;0",
-									"left": 800,
+									"left": 796,
 									"top": 721,
-									"width": 53.49169921875,
+									"width": 60.2939453125,
 									"height": 13,
 									"alpha": -2.7528133511110346,
 									"distance": 26.627053911388696,
@@ -16468,9 +16468,9 @@
 										"$ref": "AAAAAAF4tCdtBysuPeY="
 									},
 									"font": "Arial;13;0",
-									"left": 800,
+									"left": 796,
 									"top": 752,
-									"width": 53.49169921875,
+									"width": 60.2939453125,
 									"height": 13,
 									"alpha": -2.5807017312499965,
 									"distance": 30.805843601498726,
@@ -16563,9 +16563,9 @@
 										"$ref": "AAAAAAF4tDcyx5Vok8E="
 									},
 									"font": "Arial;13;0",
-									"left": 1056,
+									"left": 1052,
 									"top": 807,
-									"width": 53.49169921875,
+									"width": 60.2939453125,
 									"height": 13,
 									"alpha": -0.07689842970076244,
 									"distance": 134.3726162579266,
@@ -16658,9 +16658,9 @@
 										"$ref": "AAAAAAF4tD+aRTNXYr8="
 									},
 									"font": "Arial;13;0",
-									"left": 1228,
+									"left": 1225,
 									"top": 1071,
-									"width": 55.65625,
+									"width": 61.6849365234375,
 									"height": 13,
 									"alpha": -3.5306367319250773,
 									"distance": 174.0028735394907,
@@ -16753,9 +16753,9 @@
 										"$ref": "AAAAAAF4tD+vCjR2p6U="
 									},
 									"font": "Arial;13;0",
-									"left": 1820,
+									"left": 1817,
 									"top": 1088,
-									"width": 55.65625,
+									"width": 61.6849365234375,
 									"height": 13,
 									"alpha": 0.09714108210460394,
 									"distance": 433.0415684434925,
