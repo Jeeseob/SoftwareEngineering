@@ -20,5 +20,5 @@ Camping ++
     
 --------------------------
 #### 링크   
-<a href="https://drive.google.com/drive/u/0/folders/1SV5DFr0Iko4Lf83xGydJXPkIxnjyQR_Y"><img src="https://img.shields.io/badge/Google Drive-4285F4?style=flat-square&logo=google&logoColor=white"/></a>
+<a href="https://drive.google.com/drive/folders/1SV5DFr0Iko4Lf83xGydJXPkIxnjyQR_Y?usp=sharing"><img src="https://img.shields.io/badge/Google Drive-4285F4?style=flat-square&logo=google&logoColor=white"/></a>
 <a href="https://trello.com/b/nKUZ4o1y/seplan"><img src="https://img.shields.io/badge/Trello-0079BF?style=flat-square&logo=trello&logoColor=white"/></a>
