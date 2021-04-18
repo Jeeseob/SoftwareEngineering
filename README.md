@@ -22,3 +22,27 @@ Camping ++
 #### 링크   
 <a href="https://drive.google.com/drive/folders/1SV5DFr0Iko4Lf83xGydJXPkIxnjyQR_Y?usp=sharing"><img src="https://img.shields.io/badge/Google Drive-4285F4?style=flat-square&logo=google&logoColor=white"/></a>
 <a href="https://trello.com/b/nKUZ4o1y/seplan"><img src="https://img.shields.io/badge/Trello-0079BF?style=flat-square&logo=trello&logoColor=white"/></a>
+
+#### 회의록
+-----------------------------
+2021.04.14   
+회의 주제 :    
+프로젝트 계획서 초안 작성 및 파트 분배    
+회의 내용 :    
+개요, 조직도, 생명주기 모델, 도구 및 규칙, WBS 결정   
+나머지 파트별 역할 분배 
+     
+   
+2021.04.15   
+회의 주제 :   
+프로젝트 계획서 수정   
+회의 내용 :      
+일정 관련 WBS, 간트 차트, 퍼트 차트 수정   
+    
+2021.04.16   
+회의 주제 :   
+교수님 온라인 미팅, 프로젝트 계획서 수정(WBS,일정)   
+회의 내용 :      
+교수님 온라인 미팅으로 진행 중 생긴 질문 해결    
+미팅 내용 바탕으로 일정 관련 WBS, 간트 차트, 퍼트 차트 수정      
+    
