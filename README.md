@@ -5,6 +5,9 @@
 캠핑장 예약관리 플랫폼  
 Camping ++
 
+### 중간고사 대체 발표   
+https://www.youtube.com/watch?v=Vxqq__nhPjY
+
 ### 프로젝트 개요   
 상명대학교 컴퓨터과학과 2021학년도 1학기 소프트웨어 공학 2분반 실습과제입니다.      
 최근 코로나 사태로 인한 캠핑 및 백패킹 등 소규모 야외 활동 증가에 따라 캠핑장 전용 예약 플랫폼의 필요성이 대두되고 있습니다.   
@@ -22,6 +25,7 @@ Camping ++
 #### 링크   
 <a href="https://drive.google.com/drive/folders/1SV5DFr0Iko4Lf83xGydJXPkIxnjyQR_Y?usp=sharing"><img src="https://img.shields.io/badge/Google Drive-4285F4?style=flat-square&logo=google&logoColor=white"/></a>
 <a href="https://trello.com/b/nKUZ4o1y/seplan"><img src="https://img.shields.io/badge/Trello-0079BF?style=flat-square&logo=trello&logoColor=white"/></a>
+<a href="https://www.youtube.com/watch?v=Vxqq__nhPjY"><img src="https://img.shields.io/badge/Youtube-FF0000?style=flat-square&logo=Youtube&logoColor=white"/></a>
 
 #### 회의록
 -----------------------------
@@ -62,3 +66,26 @@ Camping ++
 중간고사 대체 발표 준비   
 회의 내용:   
 중간 발표 ppt 수정 및 대본 초안 작성 
+   
+2021.04.26   
+회의 주제:   
+중간 발표 마무리   
+회의 내용:   
+중간 발표 ppt수정, 영상 촬영 및 제출
+   
+2021.05.18   
+회의 주제 :   
+설계 및 구현 역할 분담   
+회의 내용 :   
+김지섭, 김석황(서버 담당) / 박민주(UI 담당) / 윤성은, 박성준(설계 담당)으로 역할 분배   
+   
+   
+2021.05.20   
+회의 주제 :   
+중간 점검 (대면으로 진행)   
+회의 내용 :   
+김지섭, 김석황(안드로이드, 서버 연동) / 박민주(UI 수정, 프론트 앤드 담당) / 윤성은, 박성준(설계 수정)   
+교수님 면담 날짜 및 다음 회의 일자 선정   
+   
+   
+   
