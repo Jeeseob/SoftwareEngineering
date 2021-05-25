@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btn_login"
+        android:title="LOGIN"/>
+
+    <item
+        android:id="@+id/btn_signin"
+        android:title="SIGN IN"/>
+
+    <item
+        android:id="@+id/btn_search"
+        android:title="SEARCH"/>
+</menu>
