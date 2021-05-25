@@ -19,15 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button_login"
-        style="@style/defaultButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
-        app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
-
     <EditText
         android:id="@+id/editText_login_id"
         android:layout_width="wrap_content"
@@ -44,20 +35,47 @@
         android:id="@+id/editText_login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="100dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/button_login"
         app:layout_constraintStart_toStartOf="@+id/editText_login_id"/>
 
+    <Button
+        android:id="@+id/button_id_find"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디 찾기"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_pw_find"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
+
+    <Button
+        android:id="@+id/button_pw_find"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="비밀번호 찾기"
+        app:layout_constraintBottom_toTopOf="@+id/join_button"
+        app:layout_constraintEnd_toEndOf="@+id/editText_login_password" />
+
+    <Button
+        android:id="@+id/button_login"
+        style="@style/defaultButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
 
     <Button
         android:id="@+id/join_button"
         style="@style/defaultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="100dp"
         android:text="가입"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editText_login_password" />

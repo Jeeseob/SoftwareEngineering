@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText login_id, login_password;
-    private Button login_button, join_button;
+    private Button login_button, join_button, button_id_find, button_pw_find;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +86,24 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        button_id_find = findViewById(R.id.button_id_find);
+        button_id_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button_pw_find = findViewById(R.id.button_pw_find);
+        button_pw_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

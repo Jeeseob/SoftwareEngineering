@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CampListActivity"></activity>
+        <activity android:name=".FindPwActivity"></activity>
+        <activity android:name=".FindIdActivity" />
+        <activity android:name=".CampListActivity" />
         <activity android:name=".MyPageHostActivity" />
         <activity android:name=".MyPageActivity" />
         <activity android:name=".CampUploadActivity" />
