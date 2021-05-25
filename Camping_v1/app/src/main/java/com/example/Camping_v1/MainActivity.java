@@ -11,11 +11,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
+    ImageView imageView;
     Button button_image_load;
 
     //userdata 선언
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         ab.setDisplayShowCustomEnabled(true);
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
+        imageView = findViewById(R.id.load_image);
+
+        //이미지 업로드
+        sendImageRequest(imageView, "http://117.16.46.95/campImage/testimage.jpg");
 
         MainViewPageControl viewPagerAdapter = new MainViewPageControl(this);
         viewPager.setAdapter(viewPagerAdapter);
@@ -60,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
             menuInflater.inflate(R.menu.login_host_menu, menu);
         }
         return super.onCreateOptionsMenu(menu);
+    }
+//이미지 업로드 (이걸 함수에 넣을 수 있을까??)
+    public void sendImageRequest(ImageView imageView, String url){
+        ImageLoadControl task = new ImageLoadControl(url, imageView);
+        task.execute();
     }
 
     @Override
@@ -103,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_myPage_host:
                 Toast.makeText(this, "myPage button click", Toast.LENGTH_SHORT).show();
-                Intent myPageHostIntent = new Intent(this, MainActivity.class);
+                Intent myPageHostIntent = new Intent(this, CampUploadActivity.class);
                 myPageHostIntent.putExtra("UserNum", userData.getUserNum());
                 startActivity(myPageHostIntent);
                 break;
