@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CampUploadActivity">
+    tools:context=".CampInformationUserActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,9 +18,19 @@
             android:orientation="vertical"
             android:layout_marginTop="10dp">
 
+            <Button
+                android:id="@+id/button_reserve_camp"
+                style="@style/defaultButton"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="30dp"
+                android:text="예약하기"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"/>
+
             <ImageView
-                android:id="@+id/addphoto_image"
-                android:layout_marginTop="60dp"
+                android:id="@+id/load_image"
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"
@@ -43,14 +53,14 @@
                     android:layout_marginTop="12dp"
                     android:text="캠핑장 이름"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_name"
+                <TextView
+                    android:id="@+id/CampName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
-                    android:hint="캠핑장 이름"
-                    android:inputType="textPersonName" />
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="캠핑장 이름" />
             </LinearLayout>
 
             <LinearLayout
@@ -68,12 +78,13 @@
                     android:layout_marginTop="12dp"
                     android:text="주소"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_address"
+                <TextView
+                    android:id="@+id/CampAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
                     android:hint="주소"/>
             </LinearLayout>
 
@@ -92,12 +103,13 @@
                     android:layout_marginTop="12dp"
                     android:text="전화번호"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_phonnum"
+                <TextView
+                    android:id="@+id/CampPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
                     android:hint="전화번호"/>
             </LinearLayout>
 
@@ -116,12 +128,13 @@
                     android:layout_marginTop="12dp"
                     android:text="카톡 아이디" />
 
-                <EditText
-                    android:id="@+id/editText_camp_kakaotalk"
+                <TextView
+                    android:id="@+id/CampKakao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
                     android:hint="카톡 아이디"/>
             </LinearLayout>
 
@@ -140,13 +153,14 @@
                     android:layout_marginTop="12dp"
                     android:text="계좌번호"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_account"
+                <TextView
+                    android:id="@+id/AccountNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:hint="계좌번호"
-                    android:layout_gravity="right"/>
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="계좌번호"/>
 
             </LinearLayout>
 
@@ -166,12 +180,13 @@
                     android:layout_marginTop="12dp"
                     android:text="입실/퇴실 시간"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_time"
+                <TextView
+                    android:id="@+id/CampTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:layout_gravity="right"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
                     android:hint="입실/퇴실 시간"/>
             </LinearLayout>
 
@@ -190,13 +205,14 @@
                     android:layout_marginTop="12dp"
                     android:text="추가사항"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_extra"
+                <TextView
+                    android:id="@+id/CampExtra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:hint="추가사항"
-                    android:layout_gravity="right" />
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="추가사항"/>
             </LinearLayout>
 
             <LinearLayout
@@ -213,28 +229,22 @@
                     android:textSize="20dp"
                     android:ems="7"
                     android:layout_marginTop="12dp"
-                    android:text="캠핑장 가격"/>
+                    android:text="가격"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_cost"
+                <TextView
+                    android:id="@+id/CampCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:hint="캠핑장 가격"
-                    android:layout_gravity="right" />
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="가격"
+                    android:layout_marginBottom="50dp"/>
             </LinearLayout>
 
-            <Button
-                android:id="@+id/upload_camp_button"
-                style="@style/defaultButton"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:text="캠핑장 업로드"
-                android:layout_marginBottom="70dp"/>
-
         </LinearLayout>
+
     </ScrollView>
 
-
 </LinearLayout>
+

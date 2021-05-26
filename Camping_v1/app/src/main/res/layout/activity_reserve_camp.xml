@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CampUploadActivity">
+    tools:context=".ReserveCampActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,14 +18,14 @@
             android:orientation="vertical"
             android:layout_marginTop="10dp">
 
-            <ImageView
-                android:id="@+id/addphoto_image"
-                android:layout_marginTop="60dp"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약"
+                android:textStyle="bold"
+                android:textSize="30dp"
                 android:layout_gravity="center"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/camp_pic" />
+                android:layout_marginTop="10dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -43,14 +43,38 @@
                     android:layout_marginTop="12dp"
                     android:text="캠핑장 이름"/>
 
+                <TextView
+                    android:id="@+id/CampName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="캠핑장 이름" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:ems="7"
+                    android:layout_marginTop="12dp"
+                    android:text="예약 날짜"/>
+
                 <EditText
-                    android:id="@+id/editText_camp_name"
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:ems="9"
-                    android:hint="캠핑장 이름"
-                    android:inputType="textPersonName" />
+                    android:hint="예약 날짜" />
             </LinearLayout>
 
             <LinearLayout
@@ -66,137 +90,40 @@
                     android:textSize="20dp"
                     android:ems="7"
                     android:layout_marginTop="12dp"
-                    android:text="주소"/>
+                    android:text="캠핑장 가격"/>
 
-                <EditText
-                    android:id="@+id/editText_camp_address"
+                <TextView
+                    android:id="@+id/CampCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="캠핑장 가격" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/camp_kakaotalk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:ems="7"
+                    android:layout_marginTop="12dp"
+                    android:text="결제 수단" />
+
+                <RadioButton
+                    android:id="@+id/radio_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:ems="9"
-                    android:hint="주소"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
-                    android:layout_marginTop="12dp"
-                    android:text="전화번호"/>
-
-                <EditText
-                    android:id="@+id/editText_camp_phonnum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
-                    android:hint="전화번호"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
-                    android:layout_marginTop="12dp"
-                    android:text="카톡 아이디" />
-
-                <EditText
-                    android:id="@+id/editText_camp_kakaotalk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:ems="9"
-                    android:hint="카톡 아이디"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
-                    android:layout_marginTop="12dp"
-                    android:text="계좌번호"/>
-
-                <EditText
-                    android:id="@+id/editText_camp_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:hint="계좌번호"
-                    android:layout_gravity="right"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
-                    android:layout_marginTop="12dp"
-                    android:text="입실/퇴실 시간"/>
-
-                <EditText
-                    android:id="@+id/editText_camp_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:layout_gravity="right"
-                    android:hint="입실/퇴실 시간"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
-                    android:layout_marginTop="12dp"
-                    android:text="추가사항"/>
-
-                <EditText
-                    android:id="@+id/editText_camp_extra"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="9"
-                    android:hint="추가사항"
-                    android:layout_gravity="right" />
+                    android:text="계좌 이체"/>
             </LinearLayout>
 
             <LinearLayout
@@ -213,24 +140,25 @@
                     android:textSize="20dp"
                     android:ems="7"
                     android:layout_marginTop="12dp"
-                    android:text="캠핑장 가격"/>
+                    android:text="추가사항"/>
 
                 <EditText
-                    android:id="@+id/editText_camp_cost"
+                    android:id="@+id/CampExtra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="9"
-                    android:hint="캠핑장 가격"
-                    android:layout_gravity="right" />
+                    android:hint="주차장 이용해요~"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="50dp"/>
             </LinearLayout>
 
             <Button
-                android:id="@+id/upload_camp_button"
+                android:id="@+id/button_reserve_complete"
                 style="@style/defaultButton"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="캠핑장 업로드"
+                android:text="예약 완료"
                 android:layout_marginBottom="70dp"/>
 
         </LinearLayout>

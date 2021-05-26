@@ -87,6 +87,7 @@ class CampUploadData{
     String AccountNum;
     String CampTime;
     String CampExtra;
+    String CampCost;
 }
 
 
@@ -103,4 +104,5 @@ class ReservationData {
     String date;
     String CampAddress;
     String AccountNum;
+    String CampExtraUse;
 }

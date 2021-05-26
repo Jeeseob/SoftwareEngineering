@@ -17,12 +17,10 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPReply;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.SocketException;
 
 public class CampUploadActivity extends AppCompatActivity {
 
@@ -53,7 +51,7 @@ public class CampUploadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveBitmapToJpeg(context, img, "test");
-                Intent intent = new Intent(CampUploadActivity.this, CampInformationActivity.class);
+                Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
                 startActivity(intent);
             }
         });
