@@ -3,8 +3,14 @@ package com.example.Camping_v1;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.ImageView;
+import android.content.Context;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -15,25 +21,25 @@ public class ImageLoadControl extends AsyncTask<Void, Void, Bitmap> {
 
     private static HashMap<String, Bitmap> bitmapHash = new HashMap<String, Bitmap>();
 
-    public ImageLoadControl(String urlStr, ImageView imageView){
+    public ImageLoadControl(String urlStr, ImageView imageView) {
         this.urlStr = urlStr;
         this.imageView = imageView;
     }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
 
-        @Override
-        protected Bitmap doInBackground(Void... voids) {
+    @Override
+    protected Bitmap doInBackground(Void... voids) {
         Bitmap bitmap = null;
 
         try {
             // 이미 url을 통해 불러온 적이 있다면 이전 bitmap을 삭제
-            if(bitmapHash.containsKey(urlStr)) {
+            if (bitmapHash.containsKey(urlStr)) {
                 Bitmap oldBitmap = bitmapHash.remove(urlStr);
-                if(oldBitmap != null){
+                if (oldBitmap != null) {
                     oldBitmap.recycle();
                     oldBitmap = null;
                 }
@@ -62,6 +68,5 @@ public class ImageLoadControl extends AsyncTask<Void, Void, Bitmap> {
         imageView.setImageBitmap(bitmap);
         imageView.invalidate();
     }
-
 }
 

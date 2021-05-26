@@ -19,7 +19,12 @@ public class MainViewPageControl extends PagerAdapter {
 
     private Context Context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.camping1, R.drawable.camping2, R.drawable.camping3, R.drawable.camping4};
+    private Integer[] images = {
+
+            R.drawable.camping1,
+            R.drawable.camping2,
+            R.drawable.camping3,
+            R.drawable.camping4 };
 
 
     public MainViewPageControl(Context context){
