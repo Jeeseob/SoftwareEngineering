@@ -13,14 +13,14 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.Camping_v1.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
-
+//로그인 화면
     private EditText login_id, login_password;
-    private Button login_button, join_button, button_id_find, button_pw_find;
+    private Button button_login, button_join, button_id_find, button_pw_find;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         login_id = findViewById( R.id.editText_login_id );
         login_password = findViewById( R.id.editText_login_password );
 
-        join_button = findViewById( R.id.join_button );
-        join_button.setOnClickListener( new View.OnClickListener() {
+        button_join = findViewById( R.id.button_join);
+        button_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent( LoginActivity.this, JoinActivity.class );
@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        login_button = findViewById( R.id.button_login );
-        login_button.setOnClickListener( new View.OnClickListener() {
+        button_login = findViewById( R.id.button_login );
+        button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String UserId = login_id.getText().toString();

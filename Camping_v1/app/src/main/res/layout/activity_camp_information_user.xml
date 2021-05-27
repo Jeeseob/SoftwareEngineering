@@ -30,7 +30,7 @@
                 android:layout_marginBottom="30dp"/>
 
             <ImageView
-                android:id="@+id/load_image"
+                android:id="@+id/image_addphoto"
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"

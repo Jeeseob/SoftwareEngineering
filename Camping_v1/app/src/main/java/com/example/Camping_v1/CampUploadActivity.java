@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPReply;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,10 +20,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class CampUploadActivity extends AppCompatActivity {
-
+//캠핑장 관리자가 캠핑장을 업로드하는 화면
     private static final int REQUEST_CODE = 0;
     private ImageView addphoto_image;
-    private Button upload_camp_button;
+    private Button button_upload_camp;
     private Bitmap img;
     private Context context;
 
@@ -35,7 +32,7 @@ public class CampUploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_upload);
 
-        addphoto_image = findViewById(R.id.addphoto_image);
+        addphoto_image = findViewById(R.id.image_addphoto);
         addphoto_image.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -46,8 +43,8 @@ public class CampUploadActivity extends AppCompatActivity {
             }
         });
 
-        upload_camp_button = findViewById(R.id.upload_camp_button);
-        upload_camp_button.setOnClickListener(new View.OnClickListener() {
+        button_upload_camp = findViewById(R.id.button_upload_camp);
+        button_upload_camp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveBitmapToJpeg(context, img, "test");

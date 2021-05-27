@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class ReserveCompleteActivity extends AppCompatActivity {
+//사용자가 캠핑장 예약 완료 버튼을 클릭한 후 나오는 영수증
 
     Button button_ok;
 

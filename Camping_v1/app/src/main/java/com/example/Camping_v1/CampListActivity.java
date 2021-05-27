@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.Button;
 
 public class CampListActivity extends AppCompatActivity {
-
-    private Button camp_add_button;
+//캠핑장 관리자가 캠핑장 업로드한 리스트를 볼 수 있는 목록
+    private Button button_camp_add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_list);
 
-        camp_add_button = findViewById(R.id.camp_add_button);
-        camp_add_button.setOnClickListener(new View.OnClickListener() {
+        button_camp_add = findViewById(R.id.button_camp_add);
+        button_camp_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CampListActivity.this, CampUploadActivity.class);
