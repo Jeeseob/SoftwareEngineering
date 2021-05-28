@@ -23,7 +23,7 @@ public class JoinActivity extends AppCompatActivity {
     private static String TAG = "test";
     private static String Insert = "/insert.php";
 
-    private Button button_join_delete, button_join_insert;
+    private Button button_join_insert;
 
     private EditText mEditTextName;
     private EditText mEditTextId;
@@ -118,15 +118,6 @@ public class JoinActivity extends AppCompatActivity {
                     intent.putExtra("buttonRight", "확인");
                     startActivityForResult(intent, 3);
                 }
-            }
-        });
-
-        button_join_delete = findViewById(R.id.button_join_delete);
-        button_join_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentMain = new Intent(JoinActivity.this, MainActivity.class);
-                startActivity(intentMain);
             }
         });
 

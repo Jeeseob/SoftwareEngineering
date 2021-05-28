@@ -23,18 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/check_box_drop"
-        android:text="정말로 탈퇴하시겠습니까ㅜㅠㅜㅠ"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
