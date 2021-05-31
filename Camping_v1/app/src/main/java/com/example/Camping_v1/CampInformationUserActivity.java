@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CampInformationUserActivity extends AppCompatActivity {
-
+//사용자가 검색해서 나온 캠핑장 상세 정보
     Button button_reserve_camp;
 
     @Override

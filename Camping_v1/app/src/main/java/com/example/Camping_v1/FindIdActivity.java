@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class FindIdActivity extends AppCompatActivity {
+//아이디 찾는 화면
 
     EditText editText_find_id_name, editText_find_id_phone;
     Button button_pw_find;

@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="비밀번호 찾기"
-        app:layout_constraintBottom_toTopOf="@+id/join_button"
+        app:layout_constraintBottom_toTopOf="@+id/button_join"
         app:layout_constraintEnd_toEndOf="@+id/editText_login_password" />
 
     <Button
@@ -67,11 +67,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="로그인"
-        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_join"
         app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
 
     <Button
-        android:id="@+id/join_button"
+        android:id="@+id/button_join"
         style="@style/defaultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

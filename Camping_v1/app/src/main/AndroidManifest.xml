@@ -14,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ReserveCompleteActivity"></activity>
+        <activity android:name=".CampInformationEditActivity"></activity>
+        <activity android:name=".DropUserActivity" />
+        <activity android:name=".DeleteUserActivity" />
+        <activity android:name=".ReserveLookupActivity" />
+        <activity android:name=".MyPageEditActivity" />
+        <activity android:name=".ReserveCompleteActivity" />
         <activity android:name=".FindPwActivity" />
         <activity android:name=".FindIdActivity" />
         <activity android:name=".CampListActivity" />

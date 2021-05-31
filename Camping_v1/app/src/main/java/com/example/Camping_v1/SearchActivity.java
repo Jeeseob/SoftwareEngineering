@@ -47,7 +47,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        editTextFilter = (EditText) findViewById(R.id.editTextFilter);
+        editTextFilter = (EditText) findViewById(R.id.editText_Search_filder);
         // input창에 검색어를 입력시 "addTextChangedListener" 이벤트 리스너를 정의한다.
         editTextFilter.addTextChangedListener(new TextWatcher() {
             @Override

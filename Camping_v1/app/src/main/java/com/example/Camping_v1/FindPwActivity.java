@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class FindPwActivity extends AppCompatActivity {
-
+//비밀번호 찾는 화면
     EditText editText_find_pw_name, editText_find_pw_phone, editText_find_pw_id;
     Button login;
 

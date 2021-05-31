@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     ImageView imageView;
-    Button button_image_load;
 
     //userdata 선언
     UserData userData = new UserData();
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ab.setDisplayShowCustomEnabled(true);
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
-        imageView = findViewById(R.id.load_image);
+        imageView = findViewById(R.id.image_addphoto);
 
         //이미지 업로드
         sendImageRequest(imageView, "http://117.16.46.95/campImage/test.jpg");
@@ -114,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_myPage_host:
                 Toast.makeText(this, "myPage button click", Toast.LENGTH_SHORT).show();
-                Intent myPageHostIntent = new Intent(this, CampUploadActivity.class);
+                Intent myPageHostIntent = new Intent(this, MyPageHostActivity.class);
                 myPageHostIntent.putExtra("UserNum", userData.getUserNum());
                 startActivity(myPageHostIntent);
                 break;
