@@ -1,18 +1,26 @@
 package com.example.Camping_v1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CampUploadActivity extends AppCompatActivity {
     //캠핑장 관리자가 캠핑장을 업로드하는 화면
@@ -20,6 +28,7 @@ public class CampUploadActivity extends AppCompatActivity {
     private ImageView addphoto_image;
     private Button button_upload_camp;
     private Bitmap bitmapimg;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +50,7 @@ public class CampUploadActivity extends AppCompatActivity {
         button_upload_camp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                CampUploadControl.uploadImage();
+                uploadImgae();
                 Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
                 startActivity(intent);
             }
@@ -52,15 +60,48 @@ public class CampUploadActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data.getData()!= null) {
-            Uri path = data.getData();
-            try {
-                bitmapimg = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK && data.getData()!= null) {
+                Uri path = data.getData();
+                try {
+                    //InputStream in = getContentResolver().openInputStream(path);
+                    bitmapimg = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+                    addphoto_image.setImageBitmap(bitmapimg);
+                    //in.close();
+
+                    //addphoto_image.setImageBitmap(bitmapimg);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    protected void uploadImgae() {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmapimg.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream);
+        byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+        String encodedImage = Base64.encodeToString(imageInByte, Base64.DEFAULT);
+        //Toast.makeText(this, encodedImgae,Toast.LENGTH_SHORT).show();
+        Call<ResponsePOJO> call = Client.getInstancce().getApi().uploadImage(encodedImage);
+        call.enqueue(new Callback<ResponsePOJO>() {
+            @Override
+            public void onResponse(Call<ResponsePOJO> call, Response<ResponsePOJO> response) {
+                Toast.makeText(CampUploadActivity.this, response.body().getRemarks(), Toast.LENGTH_SHORT).show();
+
+                if (response.body().isStatus()) {
+
+                } else {
+
+                }
             }
 
-            CampUploadControl.viewImage(resultCode, addphoto_image, bitmapimg);
-        }
+            @Override
+            public void onFailure(Call<ResponsePOJO> call, Throwable t) {
+                Toast.makeText(CampUploadActivity.this, "Network Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
