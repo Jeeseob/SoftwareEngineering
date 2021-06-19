@@ -61,13 +61,18 @@ public class LoginActivity extends AppCompatActivity {
 
                                 UserData userData = new UserData();
                                 userData.putUserData(jsonObject);
-
+                                userData.getUserName();
                                 //userData.putUserName(jsonObject.getString( "UserName" ));
                                 //String UserId = jsonObject.getString( "UserId" );
 
                                 Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", userData.UserName), Toast.LENGTH_SHORT ).show();
                                 Intent intent = new Intent( LoginActivity.this, MainActivity.class );
                                 intent.putExtra( "UserNum", userData.getUserNum());
+                                intent.putExtra( "UserName", userData.getUserName());
+                                intent.putExtra( "UserEmail", userData.getUserEmail());
+                                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                                intent.putExtra( "Host", userData.getHost());
+
                                 startActivity( intent );
 
                             } else {//로그인 실패시

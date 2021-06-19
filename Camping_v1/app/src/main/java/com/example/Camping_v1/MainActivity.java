@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     ImageView imageView;
+    String Test;
 
     //userdata 선언
     UserData userData = new UserData();
@@ -43,25 +44,30 @@ public class MainActivity extends AppCompatActivity {
         //userdata 받아오기 Intenet에서
         Intent intent = getIntent();
         userData.putUserNum(intent.getStringExtra("UserNum"));
-
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
+        userData.putAdmin(intent.getStringExtra("Host"));
+        Test = userData.getHost();
+        System.out.println(Test);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
 
-        if(userData.getUserNum() == null || userData.getUserNum() == "0") {
+        if(userData.getUserNum() == null || userData.getUserNum().equals("0")) {
             MenuInflater menuInflater = getMenuInflater();
             menuInflater.inflate(R.menu.main_menu, menu);
             //System.out.println("userNum is "+ intent.getStringExtra("UserNum"));
         }
-        else if(userData.getHost() == "0"){
+        else if(Test.equals("1")){
             MenuInflater menuInflater = getMenuInflater();
-            menuInflater.inflate(R.menu.login_menu, menu);
-            //System.out.println("userNum is "+ intent.getStringExtra("UserNum"));
+            menuInflater.inflate(R.menu.login_host_menu, menu);
         }
         else{
             MenuInflater menuInflater = getMenuInflater();
-            menuInflater.inflate(R.menu.login_host_menu, menu);
+            menuInflater.inflate(R.menu.login_menu, menu);
+            //System.out.println("userNum is "+ intent.getStringExtra("UserNum"));
         }
         return super.onCreateOptionsMenu(menu);
     }

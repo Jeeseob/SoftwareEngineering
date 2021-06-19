@@ -1,6 +1,5 @@
 package com.example.Camping_v1;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -9,6 +8,7 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,16 +24,38 @@ import retrofit2.Response;
 
 public class CampUploadActivity extends AppCompatActivity {
     //캠핑장 관리자가 캠핑장을 업로드하는 화면
+    private static String IP_ADDRESS = "117.16.46.95:8080";
+    private static String CampUpload = "/campDataInsert.php";
+
     private static final int REQUEST_CODE = 21;
     private ImageView addphoto_image;
     private Button button_upload_camp;
     private Bitmap bitmapimg;
-    private Context context;
+
+    private EditText CampName;
+    private EditText CampAddress;
+    private EditText CampPhone;
+    private EditText CampKakao;
+    private EditText AccountNum;
+    private EditText CampTime;
+    private EditText CampExtra;
+    private EditText CampCost;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_camp_upload);
+
+        CampName = (EditText)findViewById(R.id.editText_CampName);
+        CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
+        CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
+        CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
+        AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
+        CampTime = (EditText)findViewById(R.id.editText_CampTime);
+        CampCost = (EditText)findViewById(R.id.editText_CampCost);
+        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
 
         addphoto_image = findViewById(R.id.image_addphoto);
         addphoto_image.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +72,21 @@ public class CampUploadActivity extends AppCompatActivity {
         button_upload_camp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImgae();
+
+                String campName = CampName.getText().toString();
+                String campAddress = CampAddress.getText().toString();
+                String campPhone = CampPhone.getText().toString();
+                String campKakao = CampKakao.getText().toString();
+                String accountNum = AccountNum.getText().toString();
+                String campTime = CampTime.getText().toString();
+                String campCost = CampCost.getText().toString();
+                String campExtra = CampExtra.getText().toString();
+
+
+                CampUploadControl task = new CampUploadControl();
+                //InsertDataControl task = new InsertDataControl();
+                task.execute("http://" + IP_ADDRESS + CampUpload, campName, campAddress, campPhone,campKakao, accountNum, campTime, campExtra, campCost);
+                uploadImage();
                 Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
                 startActivity(intent);
             }
@@ -78,7 +114,7 @@ public class CampUploadActivity extends AppCompatActivity {
             }
         }
     }
-    protected void uploadImgae() {
+    protected void uploadImage() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmapimg.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream);
         byte[] imageInByte = byteArrayOutputStream.toByteArray();
@@ -103,5 +139,8 @@ public class CampUploadActivity extends AppCompatActivity {
                 Toast.makeText(CampUploadActivity.this, "Network Failed", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    protected void uploadCampData(){
+
     }
 }
