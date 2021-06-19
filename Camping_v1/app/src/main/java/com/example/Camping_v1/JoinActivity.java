@@ -19,7 +19,7 @@ import com.lakue.lakuepopupactivity.PopupType;
 public class JoinActivity extends AppCompatActivity {
 //회원가입 화면
 
-    private static String IP_ADDRESS = "117.16.46.95";
+    private static String IP_ADDRESS = "117.16.46.95:8080";
     private static String TAG = "test";
     private static String Insert = "/insert.php";
 
@@ -81,7 +81,7 @@ public class JoinActivity extends AppCompatActivity {
                     joinCheckBoxHost = "1";
                 }
                 else{
-                    joinCheckBoxHost = "0";
+                    joinCheckBoxHost = "2";
                 }
 
 

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image_addphoto);
 
         //이미지 업로드
-        sendImageRequest(imageView, "http://117.16.46.95/campImage/test.jpg");
+        sendImageRequest(imageView, "http://117.16.46.95:8080/campImage/test.jpg");
 
         MainViewPageControl viewPagerAdapter = new MainViewPageControl(this);
         viewPager.setAdapter(viewPagerAdapter);
