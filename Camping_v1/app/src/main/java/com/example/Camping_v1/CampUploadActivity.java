@@ -28,8 +28,7 @@ public class CampUploadActivity extends AppCompatActivity {
     private static String CampUpload = "/campDataInsert.php";
 
     private static final int REQUEST_CODE = 21;
-    private ImageView addphoto_image;
-    private Button button_upload_camp;
+    private ImageView image_addphoto;
     private Bitmap bitmapimg;
 
     private EditText CampName;
@@ -46,16 +45,14 @@ public class CampUploadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_camp_upload);
+
         Intent intent = getIntent();
         userData.putUserNum(intent.getStringExtra("UserNum"));
         userData.putUserName(intent.getStringExtra("UserName"));
         userData.putUserEmail(intent.getStringExtra("UserEmail"));
         userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
         userData.putAdmin(intent.getStringExtra("Host"));
-
-
 
         CampName = (EditText)findViewById(R.id.editText_CampName);
         CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
@@ -66,38 +63,14 @@ public class CampUploadActivity extends AppCompatActivity {
         CampCost = (EditText)findViewById(R.id.editText_CampCost);
         CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
 
-        addphoto_image = findViewById(R.id.image_addphoto);
-        addphoto_image.setOnClickListener(new View.OnClickListener() {
+        image_addphoto = findViewById(R.id.image_addphoto);
+        image_addphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
-            }
-        });
-
-        button_upload_camp = findViewById(R.id.button_upload_camp);
-        button_upload_camp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String campName = CampName.getText().toString();
-                String campAddress = CampAddress.getText().toString();
-                String campPhone = CampPhone.getText().toString();
-                String campKakao = CampKakao.getText().toString();
-                String accountNum = AccountNum.getText().toString();
-                String campTime = CampTime.getText().toString();
-                String campCost = CampCost.getText().toString();
-                String campExtra = CampExtra.getText().toString();
-
-                CampUploadControl task = new CampUploadControl();
-                //InsertDataControl task = new InsertDataControl();
-                System.out.println(userData.getUserNum());
-                task.execute("http://" + IP_ADDRESS + CampUpload, userData.getUserNum(),campName, campAddress, campPhone,campKakao, accountNum, campTime, campExtra, campCost);
-                uploadImage();
-                Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -111,7 +84,7 @@ public class CampUploadActivity extends AppCompatActivity {
                 try {
                     //InputStream in = getContentResolver().openInputStream(path);
                     bitmapimg = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
-                    addphoto_image.setImageBitmap(bitmapimg);
+                    image_addphoto.setImageBitmap(bitmapimg);
                     //in.close();
 
                     //addphoto_image.setImageBitmap(bitmapimg);
@@ -151,5 +124,24 @@ public class CampUploadActivity extends AppCompatActivity {
     }
     protected void uploadCampData(){
 
+    }
+
+    public void onClick_upload_camp(View view){
+        String campName = CampName.getText().toString();
+        String campAddress = CampAddress.getText().toString();
+        String campPhone = CampPhone.getText().toString();
+        String campKakao = CampKakao.getText().toString();
+        String accountNum = AccountNum.getText().toString();
+        String campTime = CampTime.getText().toString();
+        String campCost = CampCost.getText().toString();
+        String campExtra = CampExtra.getText().toString();
+
+        CampUploadControl task = new CampUploadControl();
+        //InsertDataControl task = new InsertDataControl();
+        System.out.println(userData.getUserNum());
+        task.execute("http://" + IP_ADDRESS + CampUpload, userData.getUserNum(),campName, campAddress, campPhone,campKakao, accountNum, campTime, campExtra, campCost);
+        uploadImage();
+        Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
+        startActivity(intent);
     }
 }

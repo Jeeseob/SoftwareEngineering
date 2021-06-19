@@ -57,7 +57,7 @@
         android:id="@+id/send_find_pw"
         android:layout_marginBottom="160dp"
         android:text="비밀번호 보내기"
-        android:onClick="send_find_pwF"
+        android:onClick="onClick_send_find_pw"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/editText_find_pw_phone" />
 

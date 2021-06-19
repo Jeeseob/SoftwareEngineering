@@ -230,6 +230,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:text="수정 완료"
+                android:onClick="onClick_edit_complete_camp"
                 android:layout_marginBottom="70dp"/>
 
         </LinearLayout>

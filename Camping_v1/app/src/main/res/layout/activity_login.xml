@@ -48,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아이디 찾기"
+        android:onClick="onClick_id_find"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_pw_find"
         app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
 
@@ -58,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="비밀번호 찾기"
+        android:onClick="onClick_pw_find"
         app:layout_constraintBottom_toTopOf="@+id/button_join"
         app:layout_constraintEnd_toEndOf="@+id/editText_login_password" />
 
@@ -67,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="로그인"
+        android:onClick="onClick_login"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_join"
         app:layout_constraintStart_toStartOf="@+id/editText_login_password" />
 
@@ -77,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         android:text="가입"
+        android:onClick="onClick_join"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editText_login_password" />
 

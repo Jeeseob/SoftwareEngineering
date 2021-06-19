@@ -227,10 +227,11 @@
                 android:id="@+id/button_upload_camp"
                 style="@style/defaultButton"
                 android:layout_width="120dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:text="캠핑장 업로드"
-                android:layout_marginBottom="70dp"/>
+                android:onClick="onClick_upload_camp"
+                android:layout_marginBottom="70dp"
+                android:text="캠핑장 업로드" />
 
         </LinearLayout>
     </ScrollView>

@@ -82,19 +82,20 @@ public class CampInformationHostActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(CampInformationHostActivity.this);
         queue.add(campRequest);
 
-
-        button_edit_camp = findViewById(R.id.button_edit_camp);
-        button_edit_camp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CampInformationHostActivity.this, CampUploadActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
     public void sendImageRequest(ImageView imageView, String url) {
         ImageLoadControl task = new ImageLoadControl(url, imageView);
         task.execute();
+    }
+
+    public void onClick_edit_camp(View view){
+        Intent intent = new Intent(CampInformationHostActivity.this, CampInformationEditActivity.class);
+/*                intent.putExtra( "CampName", campData.getCampName());
+                intent.putExtra( "CampAddress", CampUploadData.getCampAddress());
+                intent.putExtra( "UserEmail", CampUploadData.getUserEmail());
+                intent.putExtra( "UserPhoneNum", CampUploadData.getUserPhoneNum());
+                intent.putExtra( "Host", CampUploadData.getHost());*/
+
+        startActivity( intent );
     }
 }

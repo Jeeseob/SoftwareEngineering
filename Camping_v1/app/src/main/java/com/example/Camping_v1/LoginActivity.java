@@ -34,81 +34,66 @@ public class LoginActivity extends AppCompatActivity {
         login_id = findViewById( R.id.editText_login_id );
         login_password = findViewById( R.id.editText_login_password );
 
-        button_join = findViewById( R.id.button_join);
-        button_join.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void onClick_id_find(View view){
+        Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_pw_find(View view){
+        Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_login(View view){
+        String UserId = login_id.getText().toString();
+        String UserPwd = login_password.getText().toString();
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( LoginActivity.this, JoinActivity.class );
-                startActivity( intent );
-            }
-        });
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject( response );
+                    boolean success = jsonObject.getBoolean( "success" );
 
-        button_login = findViewById( R.id.button_login );
-        button_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String UserId = login_id.getText().toString();
-                String UserPwd = login_password.getText().toString();
+                    if(success) {//로그인 성공시
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject( response );
-                            boolean success = jsonObject.getBoolean( "success" );
+                        UserData userData = new UserData();
+                        userData.putUserData(jsonObject);
+                        userData.getUserName();
+                        //userData.putUserName(jsonObject.getString( "UserName" ));
+                        //String UserId = jsonObject.getString( "UserId" );
 
-                            if(success) {//로그인 성공시
+                        Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", userData.UserName), Toast.LENGTH_SHORT ).show();
+                        Intent intent = new Intent( LoginActivity.this, MainActivity.class );
+                        intent.putExtra( "UserNum", userData.getUserNum());
+                        intent.putExtra( "UserName", userData.getUserName());
+                        intent.putExtra( "UserEmail", userData.getUserEmail());
+                        intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                        intent.putExtra( "Host", userData.getHost());
 
-                                UserData userData = new UserData();
-                                userData.putUserData(jsonObject);
-                                userData.getUserName();
-                                //userData.putUserName(jsonObject.getString( "UserName" ));
-                                //String UserId = jsonObject.getString( "UserId" );
+                        startActivity( intent );
 
-                                Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", userData.UserName), Toast.LENGTH_SHORT ).show();
-                                Intent intent = new Intent( LoginActivity.this, MainActivity.class );
-                                intent.putExtra( "UserNum", userData.getUserNum());
-                                intent.putExtra( "UserName", userData.getUserName());
-                                intent.putExtra( "UserEmail", userData.getUserEmail());
-                                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
-                                intent.putExtra( "Host", userData.getHost());
-
-                                startActivity( intent );
-
-                            } else {//로그인 실패시
-                                Toast.makeText( getApplicationContext(), "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT ).show();
-                                return;
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    } else {//로그인 실패시
+                        Toast.makeText( getApplicationContext(), "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT ).show();
+                        return;
                     }
-                };
-                LoginControl loginRequest = new LoginControl( UserId, UserPwd, responseListener );
-                RequestQueue queue = Volley.newRequestQueue( LoginActivity.this );
-                queue.add( loginRequest );
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        });
-
-        button_id_find = findViewById(R.id.button_id_find);
-        button_id_find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        button_pw_find = findViewById(R.id.button_pw_find);
-        button_pw_find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
-                startActivity(intent);
-            }
-        });
+        };
+        LoginControl loginRequest = new LoginControl( UserId, UserPwd, responseListener );
+        RequestQueue queue = Volley.newRequestQueue( LoginActivity.this );
+        queue.add( loginRequest );
 
     }
+
+    public void onClick_join(View view){
+        Intent intent = new Intent( LoginActivity.this, JoinActivity.class );
+        startActivity( intent );
+    }
+
 }
