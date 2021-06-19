@@ -40,6 +40,7 @@ public class CampUploadActivity extends AppCompatActivity {
     private EditText CampTime;
     private EditText CampExtra;
     private EditText CampCost;
+    UserData userData = new UserData();
 
 
     @Override
@@ -47,6 +48,14 @@ public class CampUploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_camp_upload);
+        Intent intent = getIntent();
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
+        userData.putAdmin(intent.getStringExtra("Host"));
+
+
 
         CampName = (EditText)findViewById(R.id.editText_CampName);
         CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
@@ -82,10 +91,10 @@ public class CampUploadActivity extends AppCompatActivity {
                 String campCost = CampCost.getText().toString();
                 String campExtra = CampExtra.getText().toString();
 
-
                 CampUploadControl task = new CampUploadControl();
                 //InsertDataControl task = new InsertDataControl();
-                task.execute("http://" + IP_ADDRESS + CampUpload, campName, campAddress, campPhone,campKakao, accountNum, campTime, campExtra, campCost);
+                System.out.println(userData.getUserNum());
+                task.execute("http://" + IP_ADDRESS + CampUpload, userData.getUserNum(),campName, campAddress, campPhone,campKakao, accountNum, campTime, campExtra, campCost);
                 uploadImage();
                 Intent intent = new Intent(CampUploadActivity.this, CampInformationHostActivity.class);
                 startActivity(intent);

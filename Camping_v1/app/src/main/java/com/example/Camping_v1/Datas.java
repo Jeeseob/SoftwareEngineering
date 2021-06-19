@@ -93,7 +93,7 @@ class CampUploadData{
             CampAddress = jsonObject.getString("campAddress");
             CampPhone = jsonObject.getString("campPhone");
             CampKakao = jsonObject.getString("campKakao");
-            AccountNum = jsonObject.getString("campaccount");
+            AccountNum = jsonObject.getString("campAccount");
             CampTime = jsonObject.getString("campTime");
             CampExtra = jsonObject.getString("campExtra");
             CampCost = jsonObject.getString("campPrice");

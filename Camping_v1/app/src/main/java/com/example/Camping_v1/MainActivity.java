@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     //userdata 선언
     UserData userData = new UserData();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +114,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_list_host:
                 Toast.makeText(this, "list button click", Toast.LENGTH_SHORT).show();
                 Intent ListIntent = new Intent(this, CampListActivity.class);
-                ListIntent.putExtra("UserNum", userData.getUserNum());
+                ListIntent.putExtra( "UserNum", userData.getUserNum());
+                ListIntent.putExtra( "UserName", userData.getUserName());
+                ListIntent.putExtra( "UserEmail", userData.getUserEmail());
+                ListIntent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                ListIntent.putExtra( "Host", userData.getHost());
                 startActivity(ListIntent);
                 break;
             case R.id.btn_myPage_host:

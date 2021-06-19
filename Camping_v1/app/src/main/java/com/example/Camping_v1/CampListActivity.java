@@ -10,17 +10,30 @@ import android.widget.Button;
 public class CampListActivity extends AppCompatActivity {
 //캠핑장 관리자가 캠핑장 업로드한 리스트를 볼 수 있는 목록
     private Button button_camp_add;
+    UserData userData = new UserData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_list);
+        Intent intent = getIntent();
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
+        userData.putAdmin(intent.getStringExtra("Host"));
 
         button_camp_add = findViewById(R.id.button_camp_add);
         button_camp_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CampListActivity.this, CampUploadActivity.class);
+                intent.putExtra( "UserNum", userData.getUserNum());
+                intent.putExtra( "UserName", userData.getUserName());
+                intent.putExtra( "UserEmail", userData.getUserEmail());
+                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                intent.putExtra( "Host", userData.getHost());
+
                 startActivity(intent);
             }
         });

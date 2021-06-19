@@ -1,6 +1,7 @@
 package com.example.Camping_v1;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -14,24 +15,24 @@ import java.net.URL;
 public class CampUploadControl extends AsyncTask<String, Void, String> {
     ProgressDialog progressDialog;
     private static String TAG = "test";
-
     @Override
     protected String doInBackground(String... params) {
 
-        String campName = (String) params[1];
-        String campAddress = (String) params[2];
-        String campPhone = (String) params[3];
-        String campKakao = (String) params[4];
-        String accountNum = (String) params[5];
-        String campTime = (String) params[6];
-        String campExtra = (String) params[7];
-        String campCost = (String) params[8];
+        String userNum = (String) params[1];
+        String campName = (String) params[2];
+        String campAddress = (String) params[3];
+        String campPhone = (String) params[4];
+        String campKakao = (String) params[5];
+        String accountNum = (String) params[6];
+        String campTime = (String) params[7];
+        String campExtra = (String) params[8];
+        String campCost = (String) params[9];
 
         String serverURL = (String) params[0];
         //campName, campAddress, campPhone,campKakao, accountNum, campTime, campCost, campExtra);
 
         //host num 추가해야함
-        String postParameters = "name=" + campName + "&address=" + campAddress + "&phone=" + campPhone + "&kakao=" + campKakao + "&account=" + accountNum + "&time=" + campTime + "&extra=" + campExtra + "&price=" + campCost;
+        String postParameters = "userNum=" + userNum + "&name=" + campName + "&address=" + campAddress + "&phone=" + campPhone + "&kakao=" + campKakao + "&account=" + accountNum + "&time=" + campTime + "&extra=" + campExtra + "&price=" + campCost;
 
         try {
 
