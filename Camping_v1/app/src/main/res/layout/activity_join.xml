@@ -125,6 +125,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
         android:text="가입"
+        android:onClick="onClick_join_insert"
         app:layout_constraintTop_toBottomOf="@+id/editText_join_phone"
         app:layout_constraintStart_toStartOf="parent" />
 

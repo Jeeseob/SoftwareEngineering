@@ -23,19 +23,15 @@ public class CampListActivity extends AppCompatActivity {
         userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
         userData.putAdmin(intent.getStringExtra("Host"));
 
-        button_camp_add = findViewById(R.id.button_camp_add);
-        button_camp_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CampListActivity.this, CampUploadActivity.class);
-                intent.putExtra( "UserNum", userData.getUserNum());
-                intent.putExtra( "UserName", userData.getUserName());
-                intent.putExtra( "UserEmail", userData.getUserEmail());
-                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
-                intent.putExtra( "Host", userData.getHost());
+    }
 
-                startActivity(intent);
-            }
-        });
+    public void onClick_camp_add(View view){
+        Intent intent = new Intent(CampListActivity.this, CampUploadActivity.class);
+        intent.putExtra( "UserNum", userData.getUserNum());
+        intent.putExtra( "UserName", userData.getUserName());
+        intent.putExtra( "UserEmail", userData.getUserEmail());
+        intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+        intent.putExtra( "Host", userData.getHost());
+        startActivity(intent);
     }
 }

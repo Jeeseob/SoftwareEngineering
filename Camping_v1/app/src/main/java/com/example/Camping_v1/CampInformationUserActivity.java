@@ -19,7 +19,6 @@ import org.json.JSONObject;
 
 public class CampInformationUserActivity extends AppCompatActivity {
     //사용자가 검색해서 나온 캠핑장 상세 정보
-    Button button_reserve_camp;
     ImageView imageView;
     TextView CampName;
     TextView CampAddress;
@@ -81,21 +80,16 @@ public class CampInformationUserActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(CampInformationUserActivity.this);
         queue.add(campRequest);
 
-
-        button_reserve_camp = findViewById(R.id.button_reserve_camp);
-        button_reserve_camp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CampInformationUserActivity.this, ReserveCampActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
-
 
     public void sendImageRequest(ImageView imageView, String url) {
         ImageLoadControl task = new ImageLoadControl(url, imageView);
         task.execute();
     }
+
+    public void onClick_reserve_camp(View view){
+        Intent intent = new Intent(CampInformationUserActivity.this, ReserveCampActivity.class);
+        startActivity(intent);
+    }
+
 }

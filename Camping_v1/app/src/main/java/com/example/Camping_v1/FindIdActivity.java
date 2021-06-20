@@ -29,39 +29,11 @@ public class FindIdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_find_id);
 
         editText_find_id_name = findViewById(R.id.editText_find_id_name);
-
         editText_find_id_phone = findViewById(R.id.editText_find_id_phone);
 
-/*        send_find_id = findViewById(R.id.button_id_find);
-        send_find_id.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Bitmap LargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background);
-                PendingIntent pendingIntent = PendingIntent.getActivity(FindIdActivity.this,0,new Intent(getApplication))
-
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(FindIdActivity.this)
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
-                        .setContentTitle("아이디 찾기")
-                        .setContentText("당신의 아이디는 입니다.")
-                        .setDefaults(Notification.DEFAULT_SOUND)
-                        .setLargeIcon(LargeIconForNoti)
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                        .setAutoCancel(true);
-            }
-        });*/
-
-        button_pw_find = findViewById(R.id.button_pw_find);
-        button_pw_find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( FindIdActivity.this, FindPwActivity.class );
-                startActivity( intent );
-            }
-        });
     }
 
-    public void send_find_idF(View view) {
+    public void onClick_send_find_id(View view) {
 
             NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             NotificationCompat.Builder builder= null;
@@ -102,5 +74,9 @@ public class FindIdActivity extends AppCompatActivity {
 
         }
 
+        public void onClick_pw_find(View view){
+            Intent intent = new Intent( FindIdActivity.this, FindPwActivity.class );
+            startActivity( intent );
+        }
 
 }

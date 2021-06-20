@@ -47,7 +47,7 @@
         android:id="@+id/send_find_id"
         android:layout_marginBottom="160dp"
         android:text="아이디 보내기"
-        android:onClick="send_find_idF"
+        android:onClick="onClick_send_find_id"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/editText_find_id_phone" />
 
@@ -58,6 +58,7 @@
         android:id="@+id/button_pw_find"
         android:layout_marginBottom="100dp"
         android:text="비밀번호 찾기"
+        android:onClick="onClick_pw_find"
         app:layout_constraintBaseline_toBaselineOf="@id/send_find_id"
         app:layout_constraintEnd_toEndOf="@id/editText_find_id_phone" />
 

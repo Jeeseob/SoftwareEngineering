@@ -32,7 +32,7 @@ public class FindPwActivity extends AppCompatActivity {
 
     }
 
-    public void send_find_pwF(View view) {
+    public void onClick_send_find_pw(View view) {
 
         NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder= null;
