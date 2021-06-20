@@ -156,5 +156,5 @@ https://www.youtube.com/watch?v=Vxqq__nhPjY
 회의 주제:  
 구현 및 발표 준비  
 회의 내용:  
-구현 진행 및 발표 구상 및 ppt 작성  
+구현 진행, ppt 작성 발표 구상   
   
