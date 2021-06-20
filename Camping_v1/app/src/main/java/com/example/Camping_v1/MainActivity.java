@@ -17,7 +17,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-    ImageView imageView;
     String Test;
     Button go_host_camp;
 
@@ -45,20 +44,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
-        imageView = findViewById(R.id.image_addphoto);
 
-        //이미지 업로드
-        sendImageRequest(imageView, "http://117.16.46.95:8080/campImage/test.jpg");
 
         MainViewPageControl viewPagerAdapter = new MainViewPageControl(this);
         viewPager.setAdapter(viewPagerAdapter);
 
         //userdata 받아오기 Intenet에서
         Intent intent = getIntent();
+        userData.putUserId(intent.getStringExtra("UserId"));
+        userData.putUserPassword(intent.getStringExtra("UserPwd"));
         userData.putUserNum(intent.getStringExtra("UserNum"));
         userData.putUserName(intent.getStringExtra("UserName"));
         userData.putUserEmail(intent.getStringExtra("UserEmail"));
-        userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
         userData.putAdmin(intent.getStringExtra("Host"));
         Test = userData.getHost();
         System.out.println(Test);
@@ -105,15 +103,27 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_search:
                 Toast.makeText(this, "search button click", Toast.LENGTH_SHORT).show();
                 Intent searchIntent = new Intent(this, SearchActivity.class);
-                searchIntent.putExtra("UserNum", userData.getUserNum());
+                searchIntent.putExtra( "UserId", userData.getUserId());
+                searchIntent.putExtra( "UserPwd", userData.getUserPassword());
+                searchIntent.putExtra( "UserName", userData.getUserName());
+                searchIntent.putExtra( "UserNum", userData.getUserNum());
+                searchIntent.putExtra( "UserEmail", userData.getUserEmail());
+                searchIntent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                searchIntent.putExtra( "Host", userData.getHost());
                 startActivity(searchIntent);
                 break;
             case R.id.btn_myPage:
                 Toast.makeText(this, "myPage button click", Toast.LENGTH_SHORT).show();
-                Intent myMenuIntent = new Intent(this, MainActivity.class);
+                Intent myMenuIntent = new Intent(this, MyPageActivity.class);
                 //Intent intent = getIntent();
                 //String UserNum = intent.getExtras().getString("UserNum");
-                myMenuIntent.putExtra("UserNum", userData.getUserNum());
+                myMenuIntent.putExtra( "UserId", userData.getUserId());
+                myMenuIntent.putExtra( "UserPwd", userData.getUserPassword());
+                myMenuIntent.putExtra( "UserName", userData.getUserName());
+                myMenuIntent.putExtra( "UserNum", userData.getUserNum());
+                myMenuIntent.putExtra( "UserEmail", userData.getUserEmail());
+                myMenuIntent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                myMenuIntent.putExtra( "Host", userData.getHost());
 
                 startActivity(myMenuIntent);
                 break;
@@ -125,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_list_host:
                 Toast.makeText(this, "list button click", Toast.LENGTH_SHORT).show();
                 Intent ListIntent = new Intent(this, CampListActivity.class);
+                ListIntent.putExtra( "UserId", userData.getUserId());
+                ListIntent.putExtra( "UserPwd", userData.getUserPassword());
                 ListIntent.putExtra( "UserNum", userData.getUserNum());
                 ListIntent.putExtra( "UserName", userData.getUserName());
                 ListIntent.putExtra( "UserEmail", userData.getUserEmail());
@@ -135,7 +147,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_myPage_host:
                 Toast.makeText(this, "myPage button click", Toast.LENGTH_SHORT).show();
                 Intent myPageHostIntent = new Intent(this, MyPageHostActivity.class);
-                myPageHostIntent.putExtra("UserNum", userData.getUserNum());
+                myPageHostIntent.putExtra( "UserId", userData.getUserId());
+                myPageHostIntent.putExtra( "UserPwd", userData.getUserPassword());
+                myPageHostIntent.putExtra( "UserNum", userData.getUserNum());
+                myPageHostIntent.putExtra( "UserName", userData.getUserName());
+                myPageHostIntent.putExtra( "UserEmail", userData.getUserEmail());
+                myPageHostIntent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                myPageHostIntent.putExtra( "Host", userData.getHost());
                 startActivity(myPageHostIntent);
                 break;
         }
