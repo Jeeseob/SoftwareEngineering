@@ -45,6 +45,8 @@ public class CampInformationUserActivity extends AppCompatActivity {
         userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
         userData.putAdmin(intent.getStringExtra("Host"));
 
+        System.out.println("캠프 인포 유저 액티 유저 네임: "+userData.getUserName());;
+
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

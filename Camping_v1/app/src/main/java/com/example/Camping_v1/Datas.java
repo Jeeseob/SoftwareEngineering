@@ -1,9 +1,8 @@
 package com.example.Camping_v1;
 
-import com.google.gson.JsonIOException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.google.gson.JsonIOException;
 
 class UserData {
     String UserNum;
@@ -197,6 +196,7 @@ class ReservationData {
     String CampExtraUse;
     String CampCost;
     String CampKakao;
+    String Accept;
 
     public ReservationData putReservationData(JSONObject jsonObject){
         try{
@@ -214,6 +214,7 @@ class ReservationData {
             CampExtraUse = jsonObject.getString("campExtraUse");
             CampCost = jsonObject.getString("campCost");
             CampKakao = jsonObject.getString("campKakao");
+            Accept = jsonObject.getString("accept");
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -235,7 +236,8 @@ class ReservationData {
     public void putAccountNum(String ANum){AccountNum = ANum;}
     public void putCampExtraUse(String CUse){CampExtraUse = CUse;}
     public void putCampCost(String CCost){CampCost = CCost;}
-    public void putCampKakao(String CKakao){CampKakao = CKakao;}
+    public void putCampKakao(String CKakao){ CampKakao = CKakao;}
+    public void putAccept(String CAccept){Accept = CAccept;}
 
     public String getReservationNum() {
         return ReservationNum;
@@ -290,4 +292,6 @@ class ReservationData {
     }
 
     public String getCampKakao() { return CampKakao; }
+
+    public String getAccept() {return Accept;}
 }

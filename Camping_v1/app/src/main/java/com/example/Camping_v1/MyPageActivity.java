@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class MyPageActivity extends AppCompatActivity {
     UserData userData = new UserData();
-//사용자의 마이페이지
+    //사용자의 마이페이지
     Button button_edit_userinfo,button_reserve_lookup, button_deleteuser;
     TextView UserPassword;
     TextView UserId;
@@ -21,7 +22,6 @@ public class MyPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
-
         Intent intent = getIntent();
         userData.putUserId(intent.getStringExtra("UserId"));
         userData.putUserPassword(intent.getStringExtra("UserPwd"));
@@ -43,8 +43,6 @@ public class MyPageActivity extends AppCompatActivity {
         UserPhoneNum.setText(userData.getUserPhoneNum());
         UserEmail = (TextView)findViewById(R.id.UserEmail);
         UserEmail.setText(userData.getUserEmail());
-
-
         button_edit_userinfo = findViewById(R.id.button_edit_userinfo);
         button_edit_userinfo.setOnClickListener(new View.OnClickListener() {
             @Override

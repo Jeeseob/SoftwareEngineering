@@ -67,8 +67,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", userData.UserName), Toast.LENGTH_SHORT ).show();
                         Intent intent = new Intent( LoginActivity.this, MainActivity.class );
-
-
                         intent.putExtra( "UserId", userData.getUserId());
                         intent.putExtra( "UserPwd", userData.getUserPassword());
                         intent.putExtra( "UserNum", userData.getUserNum());

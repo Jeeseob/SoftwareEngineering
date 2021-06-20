@@ -21,9 +21,6 @@ public class MyPageEditActivity extends AppCompatActivity {
     private EditText editText_UserPassword;
     private EditText editText_UserPhoneNum;
     private EditText editText_UserEmail;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

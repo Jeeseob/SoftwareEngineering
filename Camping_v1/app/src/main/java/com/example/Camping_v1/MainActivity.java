@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
+    ImageView imageView;
     String Test;
     Button go_host_camp;
 
@@ -44,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
+        imageView = findViewById(R.id.image_addphoto);
 
+        //이미지 업로드
+        sendImageRequest(imageView, "http://117.16.46.95:8080/campImage/test.jpg");
 
         MainViewPageControl viewPagerAdapter = new MainViewPageControl(this);
         viewPager.setAdapter(viewPagerAdapter);
