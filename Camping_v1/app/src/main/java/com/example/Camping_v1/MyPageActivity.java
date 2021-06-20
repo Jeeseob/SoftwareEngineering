@@ -59,6 +59,13 @@ public class MyPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyPageActivity.this, ReserveLookupActivity.class);
+                intent.putExtra( "UserId", userData.getUserId());
+                intent.putExtra( "UserPwd", userData.getUserPassword());
+                intent.putExtra( "UserName", userData.getUserName());
+                intent.putExtra( "UserNum", userData.getUserNum());
+                intent.putExtra( "UserEmail", userData.getUserEmail());
+                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                intent.putExtra( "Host", userData.getHost());
                 startActivity(intent);
             }
         });
@@ -68,6 +75,14 @@ public class MyPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyPageActivity.this, DropUserActivity.class);
+                intent.putExtra( "UserId", userData.getUserId());
+                intent.putExtra( "UserPwd", userData.getUserPassword());
+                intent.putExtra( "UserName", userData.getUserName());
+                intent.putExtra( "UserNum", userData.getUserNum());
+                intent.putExtra( "UserEmail", userData.getUserEmail());
+                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                intent.putExtra( "Host", userData.getHost());
+                startActivity(intent);
                 startActivity(intent);
             }
         });

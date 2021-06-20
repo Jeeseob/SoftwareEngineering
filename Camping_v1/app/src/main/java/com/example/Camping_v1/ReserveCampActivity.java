@@ -59,7 +59,6 @@ public class ReserveCampActivity extends AppCompatActivity {
         String date = Date.getText().toString();
         String campExtra = CampExtra.getText().toString();
 
-        System.out.println("액티비티 보내짐 "+ userData.getUserNum() + userData.getUserName()+  campData.getCampNum()+  campData.getHostNum() +campData.getCampPhone()+  userData.getUserPhoneNum() + campData.getCampName()+  date+ campData.getCampAddress()+  campData.getAccountNum()+  campExtra+campData.getCampCost()+ campData.getCampKakao());
         ReserveCampControl task = new ReserveCampControl();
         //InsertDataControl task = new InsertDataControl();
         task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserName(), campData.getCampNum(), campData.getHostNum(),campData.getCampPhone(), userData.getUserPhoneNum(), campData.getCampName(), date, campData.getCampAddress(), campData.getAccountNum(), campExtra, campData.getCampCost(), campData.getCampKakao());
