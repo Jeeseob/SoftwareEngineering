@@ -20,11 +20,20 @@ public class SearchActivity extends AppCompatActivity {
     ListView listView = null;          // 검색을 보여줄 리스트변수
     private EditText editTextFilter;        // 검색어를 입력할 Input 창
     private ListViewControl adapter;      // 리스트뷰에 연결할 아답터
+    UserData userData = new UserData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        Intent intent = getIntent();
+        userData.putUserId(intent.getStringExtra("UserId"));
+        userData.putUserPassword(intent.getStringExtra("UserPwd"));
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
+        userData.putAdmin(intent.getStringExtra("Host"));
 
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
 
@@ -43,6 +52,13 @@ public class SearchActivity extends AppCompatActivity {
 
                 //데이터 가지고 캠핑장 세부 내용 보여주기
                 Intent intent = new Intent(SearchActivity.this, CampInformationUserActivity.class);
+                intent.putExtra( "UserId", userData.getUserId());
+                intent.putExtra( "UserPwd", userData.getUserPassword());
+                intent.putExtra( "UserName", userData.getUserName());
+                intent.putExtra( "UserNum", userData.getUserNum());
+                intent.putExtra( "UserEmail", userData.getUserEmail());
+                intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+                intent.putExtra( "Host", userData.getHost());
                 startActivity(intent);
             }
         });

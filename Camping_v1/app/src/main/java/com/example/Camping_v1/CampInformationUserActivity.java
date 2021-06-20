@@ -28,11 +28,22 @@ public class CampInformationUserActivity extends AppCompatActivity {
     TextView CampTime;
     TextView CampExtra;
     TextView CampCost;
+    CampUploadData campData = new CampUploadData();
+    UserData userData = new UserData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_information_user);
+
+        Intent intent = getIntent();
+        userData.putUserId(intent.getStringExtra("UserId"));
+        userData.putUserPassword(intent.getStringExtra("UserPwd"));
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
+        userData.putAdmin(intent.getStringExtra("Host"));
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -43,8 +54,6 @@ public class CampInformationUserActivity extends AppCompatActivity {
                     boolean success = jsonObject.getBoolean("success");
 
                     if (success) {
-
-                        CampUploadData campData = new CampUploadData();
                         campData.putCampUploadData(jsonObject);
 
 
@@ -89,6 +98,23 @@ public class CampInformationUserActivity extends AppCompatActivity {
 
     public void onClick_reserve_camp(View view){
         Intent intent = new Intent(CampInformationUserActivity.this, ReserveCampActivity.class);
+        intent.putExtra("CampNum", campData.getCampNum());
+        intent.putExtra("HostNum", campData.getHostNum());
+        intent.putExtra("CampName", campData.getCampName());
+        intent.putExtra("CampAddress", campData.getCampAddress());
+        intent.putExtra("CampPhone", campData.getCampPhone());
+        intent.putExtra("CampKakao", campData.getCampKakao());
+        intent.putExtra("AccountNum", campData.getAccountNum());
+        intent.putExtra("CampTime", campData.getCampTime());
+        intent.putExtra("CampExtra", campData.getCampExtra());
+        intent.putExtra("CampCost", campData.getCampCost());
+        intent.putExtra( "UserNum", userData.getUserNum());
+        intent.putExtra( "UserName", userData.getUserName());
+        intent.putExtra( "UserId", userData.getUserId());
+        intent.putExtra( "UserPwd", userData.getUserPassword());
+        intent.putExtra( "UserEmail", userData.getUserEmail());
+        intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+        intent.putExtra( "Host", userData.getHost());
         startActivity(intent);
     }
 

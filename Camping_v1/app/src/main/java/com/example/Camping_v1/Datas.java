@@ -1,5 +1,7 @@
 package com.example.Camping_v1;
 
+import com.google.gson.JsonIOException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -193,4 +195,99 @@ class ReservationData {
     String CampAddress;
     String AccountNum;
     String CampExtraUse;
+    String CampCost;
+    String CampKakao;
+
+    public ReservationData putReservationData(JSONObject jsonObject){
+        try{
+            ReservationNum = jsonObject.getString("reservationNum");
+            UserNum = jsonObject.getString("userNum");
+            UserName = jsonObject.getString("userName");
+            CampNum = jsonObject.getString("campNum");
+            HostNum = jsonObject.getString("hostNum");
+            HostPhoneNum = jsonObject.getString("hostPhoneNum");
+            UserPhoneNum = jsonObject.getString("userPhoneNum");
+            CampName = jsonObject.getString("campName");
+            date = jsonObject.getString("date");
+            CampAddress = jsonObject.getString("campAddress");
+            AccountNum = jsonObject.getString("accountNum");
+            CampExtraUse = jsonObject.getString("campExtraUse");
+            CampCost = jsonObject.getString("campCost");
+            CampKakao = jsonObject.getString("campKakao");
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+    public ReservationData getReservationData() {return this;}
+    public void putReservationNum(String RNum) {ReservationNum = RNum;}
+    public void putUserNum(String UNum){UserNum = UNum;}
+    public void putUserName(String UName){UserName = UName;}
+    public void putCampNum(String CNum){CampNum = CNum;}
+    public void putHostNum(String HName){HostNum = HName;}
+    public void putHostPhoneNum(String HPhone){HostPhoneNum = HPhone;}
+    public void putUserPhoneNum(String UPhone){UserPhoneNum = UPhone;}
+    public void putCampName(String CName){CampName = CName;}
+    public void putdate(String Date){date = Date;}
+    public void putCampAddress(String CAddress){CampAddress = CAddress;}
+    public void putAccountNum(String ANum){AccountNum = ANum;}
+    public void putCampExtraUse(String CUse){CampExtraUse = CUse;}
+    public void putCampCost(String CCost){CampCost = CCost;}
+    public void putCampKakao(String CKakao){CampKakao = CKakao;}
+
+    public String getReservationNum() {
+        return ReservationNum;
+    }
+
+    public String getUserNum() {
+        return UserNum;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public String getCampNum() {
+        return CampNum;
+    }
+
+    public String getHostNum() {
+        return HostNum;
+    }
+
+    public String getHostPhoneNum() {
+        return HostPhoneNum;
+    }
+
+    public String getUserPhoneNum() {
+        return UserPhoneNum;
+    }
+
+    public String getCampName() {
+        return CampName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getCampAddress() {
+        return CampAddress;
+    }
+
+    public String getAccountNum() {
+        return AccountNum;
+    }
+
+    public String getCampExtraUse() {
+        return CampExtraUse;
+    }
+
+    public String getCampCost() {
+        return CampCost;
+    }
+
+    public String getCampKakao() { return CampKakao; }
 }

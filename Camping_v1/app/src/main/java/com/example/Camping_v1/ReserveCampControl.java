@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,25 +20,29 @@ public class ReserveCampControl extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... params) {
 
-        String reservationNum = (String) params[1];
-        String userNum = (String) params[2];
-        String userName = (String) params[3];
-        String campNum = (String) params[4];
-        String hostNum = (String) params[5];
-        String hostPhoneNum = (String) params[6];
-        String userPhoneNum = (String) params[7];
-        String campName = (String) params[8];
-        String Date = (String) params[9];
-        String campAddress = (String) params[10];
-        String accountNum = (String) params[11];
-        String campExtraUse = (String) params[12];
-        String campCost = (String) params[13];
+        String userNum = (String) params[1];
+        String userName = (String) params[2];
+        String campNum = (String) params[3];
+        String hostNum = (String) params[4];
+        String hostPhoneNum = (String) params[5];
+        String userPhoneNum = (String) params[6];
+        String campName = (String) params[7];
+        String Date = (String) params[8];
+        String campAddress = (String) params[9];
+        String accountNum = (String) params[10];
+        String campExtraUse = (String) params[11];
+        String campCost = (String) params[12];
+        String Kakao = (String) params[13];
 
 
         String serverURL = (String) params[0];
 
+
         //host num 추가해야함
-        String postParameters = "usernum=" + userNum + "&username=" + userName + "&campnum=" + campNum  + "&hostnum=" + hostNum + "&hostphonenum=" + hostPhoneNum + "&userphonenum=" + userPhoneNum + "&campname=" + campName + "&date=" + Date+ "&campaddress=" + campAddress+ "&accountnum=" + accountNum+ "&campextrause=" + campExtraUse+ "&campcost="+ campCost;
+        String postParameters = "usernum=" + userNum + "&username=" + userName + "&campnum=" +
+                campNum + "&hostnum=" + hostNum + "&hostphonenum=" + hostPhoneNum + "&userphonenum=" +
+                userPhoneNum + "&campname=" + campName + "&date=" + Date+ "&campaddress=" + campAddress+ "&accountnum=" +
+                accountNum+ "&campextrause=" + campExtraUse+ "&campcost="+ campCost +"&kakao="+ Kakao;
 
         try {
 
