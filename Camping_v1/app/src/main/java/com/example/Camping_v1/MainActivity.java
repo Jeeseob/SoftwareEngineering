@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -19,11 +17,9 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     ImageView imageView;
     String Test;
-    Button go_host_camp;
 
     //userdata 선언
     UserData userData = new UserData();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_myPage:
                 Toast.makeText(this, "myPage button click", Toast.LENGTH_SHORT).show();
-                Intent myMenuIntent = new Intent(this, MyPageActivity.class);
+                Intent myMenuIntent = new Intent(this, MyPageUserActivity.class);
                 //Intent intent = getIntent();
                 //String UserNum = intent.getExtras().getString("UserNum");
                 myMenuIntent.putExtra( "UserId", userData.getUserId());

@@ -32,20 +32,19 @@ public class CampInformationEditActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 21;
     private ImageView image_addphoto;
-    private Button button_edit_complete_camp;
     private Bitmap bitmapimg;
     ImageView imageView;
 
     CampUploadData campData = new CampUploadData();
     UserData userData = new UserData();
-    private EditText CampName;
-    private EditText CampAddress;
-    private EditText CampPhone;
-    private EditText CampKakao;
-    private EditText AccountNum;
-    private EditText CampTime;
-    private EditText CampExtra;
-    private EditText CampCost;
+    private EditText editText_CampName;
+    private EditText editText_CampAddress;
+    private EditText editText_CampPhone;
+    private EditText editText_CampKakao;
+    private EditText editText_AccountNum;
+    private EditText editText_CampTime;
+    private EditText editText_CampExtra;
+    private EditText editText_CampCost;
     private static String reservation = "/campEdit.php";
 
     @Override
@@ -76,22 +75,22 @@ public class CampInformationEditActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.image_addphoto);
         sendImageRequest(imageView, "http://117.16.46.95:8080/"+campData.getImagepath());
-        CampName = (EditText)findViewById(R.id.editText_CampName);
-        CampName.setText(campData.getCampName());
-        CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
-        CampAddress.setText(campData.getCampAddress());
-        CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
-        CampPhone.setText(campData.getCampPhone());
-        CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
-        CampKakao.setText(campData.getCampKakao());
-        AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
-        AccountNum.setText(campData.getAccountNum());
-        CampTime = (EditText)findViewById(R.id.editText_CampTime);
-        CampTime.setText(campData.getCampTime());
-        CampCost = (EditText)findViewById(R.id.editText_CampCost);
-        CampCost.setText(campData.getCampCost());
-        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
-        CampExtra.setText(campData.getCampExtra());
+        editText_CampName = (EditText)findViewById(R.id.editText_CampName);
+        editText_CampName.setText(campData.getCampName());
+        editText_CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
+        editText_CampAddress.setText(campData.getCampAddress());
+        editText_CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
+        editText_CampPhone.setText(campData.getCampPhone());
+        editText_CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
+        editText_CampKakao.setText(campData.getCampKakao());
+        editText_AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
+        editText_AccountNum.setText(campData.getAccountNum());
+        editText_CampTime = (EditText)findViewById(R.id.editText_CampTime);
+        editText_CampTime.setText(campData.getCampTime());
+        editText_CampCost = (EditText)findViewById(R.id.editText_CampCost);
+        editText_CampCost.setText(campData.getCampCost());
+        editText_CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
+        editText_CampExtra.setText(campData.getCampExtra());
 
         image_addphoto = findViewById(R.id.image_addphoto);
         image_addphoto.setOnClickListener(new View.OnClickListener() {
@@ -111,15 +110,14 @@ public class CampInformationEditActivity extends AppCompatActivity {
 
     public void onClick_edit_complete_camp(View view){
 
-        String campname = CampName.getText().toString();
-        String campaddress = CampAddress.getText().toString();
-        String campphone = CampPhone.getText().toString();
-        String campkakao = CampKakao.getText().toString();
-        String accountnum = AccountNum.getText().toString();
-        String camptime = CampTime.getText().toString();
-
-        String campcost = CampCost.getText().toString();
-        String campextra = CampExtra.getText().toString();
+        String campname = editText_CampName.getText().toString();
+        String campaddress = editText_CampAddress.getText().toString();
+        String campphone = editText_CampPhone.getText().toString();
+        String campkakao = editText_CampKakao.getText().toString();
+        String accountnum = editText_AccountNum.getText().toString();
+        String camptime = editText_CampTime.getText().toString();
+        String campcost = editText_CampCost.getText().toString();
+        String campextra = editText_CampExtra.getText().toString();
         CampInformationEditControl task = new CampInformationEditControl();
         task.execute("http://" + IP_ADDRESS + reservation, campData.getCampNum(),campname,campaddress, campphone,campkakao,accountnum,camptime,campcost,campextra);
 

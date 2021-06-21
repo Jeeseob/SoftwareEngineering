@@ -18,7 +18,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private List<String> list;          // 데이터를 넣은 리스트변수
     ListView listView = null;          // 검색을 보여줄 리스트변수
-    private EditText editTextFilter;        // 검색어를 입력할 Input 창
+    private EditText editText_Search_filter;        // 검색어를 입력할 Input 창
     private ListViewControl adapter;      // 리스트뷰에 연결할 아답터
     UserData userData = new UserData();
 
@@ -63,9 +63,9 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        editTextFilter = (EditText) findViewById(R.id.editText_Search_filder);
+        editText_Search_filter = (EditText) findViewById(R.id.editText_Search_filder);
         // input창에 검색어를 입력시 "addTextChangedListener" 이벤트 리스너를 정의한다.
-        editTextFilter.addTextChangedListener(new TextWatcher() {
+        editText_Search_filter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }

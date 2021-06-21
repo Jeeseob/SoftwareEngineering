@@ -23,20 +23,13 @@ public class JoinActivity extends AppCompatActivity {
     private static String TAG = "test";
     private static String Insert = "/insert.php";
 
-    private Button button_join_insert;
-
-    private EditText mEditTextName;
-    private EditText mEditTextId;
-    private EditText mEditTextPassword;
-    private EditText mEditTextPasswordCheck;
-    private EditText mEditTextEmail;
-    private EditText mEditTextPhone;
-    private CheckBox mEditCheckBoxHost;
-
-
-    //private TextView mTextViewResult;
-
-
+    private EditText editText_join_name;
+    private EditText editText_join_id;
+    private EditText editText_join_password;
+    private EditText editText_join_passwordChek;
+    private EditText editText_join_email;
+    private EditText editText_join_phone;
+    private CheckBox checkbox_host;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +40,13 @@ public class JoinActivity extends AppCompatActivity {
         ab.setTitle("회원가입");
         ab.setDisplayShowCustomEnabled(true);
 
-        mEditTextName = (EditText)findViewById(R.id.editText_join_name);
-        mEditTextId = (EditText)findViewById(R.id.editText_join_id);
-        mEditTextPassword = (EditText)findViewById(R.id.editText_join_password);
-        mEditTextPasswordCheck = (EditText)findViewById(R.id.editText_join_passwordChek);
-        mEditTextEmail = (EditText)findViewById(R.id.editText_join_email);
-        mEditTextPhone = (EditText)findViewById(R.id.editText_join_phone);
-        mEditCheckBoxHost = (CheckBox) findViewById(R.id.checkbox_host);
+        editText_join_name = (EditText)findViewById(R.id.editText_join_name);
+        editText_join_id = (EditText)findViewById(R.id.editText_join_id);
+        editText_join_password = (EditText)findViewById(R.id.editText_join_password);
+        editText_join_passwordChek = (EditText)findViewById(R.id.editText_join_passwordChek);
+        editText_join_email = (EditText)findViewById(R.id.editText_join_email);
+        editText_join_phone = (EditText)findViewById(R.id.editText_join_phone);
+        checkbox_host = (CheckBox) findViewById(R.id.checkbox_host);
 
         //mTextViewResult = (TextView)findViewById(R.id.textView_main_result);
         //mTextViewResult.setMovementMethod(new ScrollingMovementMethod());
@@ -61,13 +54,13 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     public void onClick_join_insert(View view){
-        String joinName = mEditTextName.getText().toString();
-        String joinId = mEditTextId.getText().toString();
-        String joinPassword = mEditTextPassword.getText().toString();
-        String joinPasswordCheck = mEditTextPasswordCheck.getText().toString();
-        String joinEmail = mEditTextEmail.getText().toString();
-        String joinPhone = mEditTextPhone.getText().toString();
-        Boolean joinCheckBox = mEditCheckBoxHost.isChecked();
+        String joinName = editText_join_name.getText().toString();
+        String joinId = editText_join_id.getText().toString();
+        String joinPassword = editText_join_password.getText().toString();
+        String joinPasswordCheck = editText_join_passwordChek.getText().toString();
+        String joinEmail = editText_join_email.getText().toString();
+        String joinPhone = editText_join_phone.getText().toString();
+        Boolean joinCheckBox = checkbox_host.isChecked();
 
         String joinCheckBoxHost;
         if(joinCheckBox == Boolean.TRUE) {
@@ -92,7 +85,7 @@ public class JoinActivity extends AppCompatActivity {
         else if(joinPassword.equals(joinPasswordCheck)) {
             Toast.makeText(JoinActivity.this, "회원가입 완료", Toast.LENGTH_SHORT).show();
 
-            InsertDataControl task = new InsertDataControl();
+            JoinControl task = new JoinControl();
             task.execute("http://" + IP_ADDRESS + Insert, joinName, joinId, joinPassword, joinEmail, joinPhone, joinCheckBoxHost);
             Intent intentMain = new Intent(JoinActivity.this, LoginActivity.class);
             startActivity(intentMain);
@@ -111,5 +104,9 @@ public class JoinActivity extends AppCompatActivity {
             intent.putExtra("buttonRight", "확인");
             startActivityForResult(intent, 3);
         }
+    }
+
+    public void onClick_join_id_check(View view){
+
     }
 }

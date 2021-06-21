@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,12 +14,12 @@ public class MyPageEditActivity extends AppCompatActivity {
     private static String IP_ADDRESS = "117.16.46.95:8080";
     private static String reservation = "/userDataUpdate.php";
     UserData userData = new UserData();
-    Button button_complete_userinfo;
     TextView UserId;
     private EditText editText_UserName;
     private EditText editText_UserPassword;
     private EditText editText_UserPhoneNum;
     private EditText editText_UserEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,57 +47,53 @@ public class MyPageEditActivity extends AppCompatActivity {
         editText_UserEmail = (EditText)findViewById(R.id.editText_UserEmail);
         editText_UserEmail.setText(userData.getUserEmail());
 
+    }
 
-        button_complete_userinfo = findViewById(R.id.button_complete_userinfo);
-        button_complete_userinfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //관리자인지 유저인지 확인받아서 다른 화면으로 보내야함
-                //유저
-                if(userData.getHost().equals("2")) {
+    public void onClick_complete_userinfo(View view){
+        //관리자인지 유저인지 확인받아서 다른 화면으로 보내야함
+        //유저
+        if(userData.getHost().equals("2")) {
 
-                    String UserName = editText_UserName.getText().toString();
-                    String UserPassword = editText_UserPassword.getText().toString();
-                    String UserPhoneNum = editText_UserPhoneNum.getText().toString();
-                    String UserEmail = editText_UserEmail.getText().toString();
+            String UserName = editText_UserName.getText().toString();
+            String UserPassword = editText_UserPassword.getText().toString();
+            String UserPhoneNum = editText_UserPhoneNum.getText().toString();
+            String UserEmail = editText_UserEmail.getText().toString();
 
-                    MyPageEditControl task = new MyPageEditControl();
-                    //InsertDataControl task = new InsertDataControl();
-                    task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
+            MyPageEditControl task = new MyPageEditControl();
+            //InsertDataControl task = new InsertDataControl();
+            task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
 
 
-                    Intent intent = new Intent(MyPageEditActivity.this, MyPageActivity.class);
-                    intent.putExtra( "UserId", userData.getUserId());
-                    intent.putExtra( "UserPwd", UserPassword);
-                    intent.putExtra( "UserName", UserName);
-                    intent.putExtra( "UserNum", userData.getUserNum());
-                    intent.putExtra( "UserEmail", UserEmail);
-                    intent.putExtra( "UserPhoneNum", UserPhoneNum);
-                    intent.putExtra( "Host", userData.getHost());
-                    startActivity(intent);
-                }
-                //관리자
-                else{
+            Intent intent = new Intent(MyPageEditActivity.this, MyPageUserActivity.class);
+            intent.putExtra( "UserId", userData.getUserId());
+            intent.putExtra( "UserPwd", UserPassword);
+            intent.putExtra( "UserName", UserName);
+            intent.putExtra( "UserNum", userData.getUserNum());
+            intent.putExtra( "UserEmail", UserEmail);
+            intent.putExtra( "UserPhoneNum", UserPhoneNum);
+            intent.putExtra( "Host", userData.getHost());
+            startActivity(intent);
+        }
+        //관리자
+        else{
 
-                    String UserName = editText_UserName.getText().toString();
-                    String UserPassword = editText_UserPassword.getText().toString();
-                    String UserPhoneNum = editText_UserPhoneNum.getText().toString();
-                    String UserEmail = editText_UserEmail.getText().toString();
-                    MyPageEditControl task = new MyPageEditControl();
-                    //InsertDataControl task = new InsertDataControl();
-                    task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
+            String UserName = editText_UserName.getText().toString();
+            String UserPassword = editText_UserPassword.getText().toString();
+            String UserPhoneNum = editText_UserPhoneNum.getText().toString();
+            String UserEmail = editText_UserEmail.getText().toString();
+            MyPageEditControl task = new MyPageEditControl();
+            //InsertDataControl task = new InsertDataControl();
+            task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
 
-                    Intent intent = new Intent(MyPageEditActivity.this, MyPageHostActivity.class);
-                    intent.putExtra( "UserId", userData.getUserId());
-                    intent.putExtra( "UserPwd", UserPassword);
-                    intent.putExtra( "UserName", UserName);
-                    intent.putExtra( "UserNum", userData.getUserNum());
-                    intent.putExtra( "UserEmail", UserEmail);
-                    intent.putExtra( "UserPhoneNum", UserPhoneNum);
-                    intent.putExtra( "Host", userData.getHost());
-                    startActivity(intent);
-                }
-            }
-        });
+            Intent intent = new Intent(MyPageEditActivity.this, MyPageHostActivity.class);
+            intent.putExtra( "UserId", userData.getUserId());
+            intent.putExtra( "UserPwd", UserPassword);
+            intent.putExtra( "UserName", UserName);
+            intent.putExtra( "UserNum", userData.getUserNum());
+            intent.putExtra( "UserEmail", UserEmail);
+            intent.putExtra( "UserPhoneNum", UserPhoneNum);
+            intent.putExtra( "Host", userData.getHost());
+            startActivity(intent);
+        }
     }
 }

@@ -97,12 +97,10 @@ public class ReserveCompleteActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(ReserveCompleteActivity.this);
         queue.add(campRequest);
 
-        button_ok = findViewById(R.id.button_ok);
-        button_ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ReserveCompleteActivity.this, MainActivity.class);
-            }
-        });
+    }
+
+    public void onClick_ok(View view){
+        Intent intent = new Intent(ReserveCompleteActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

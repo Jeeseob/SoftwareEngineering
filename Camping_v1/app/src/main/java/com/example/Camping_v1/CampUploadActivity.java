@@ -31,14 +31,14 @@ public class CampUploadActivity extends AppCompatActivity {
     private ImageView image_addphoto;
     private Bitmap bitmapimg;
 
-    private EditText CampName;
-    private EditText CampAddress;
-    private EditText CampPhone;
-    private EditText CampKakao;
-    private EditText AccountNum;
-    private EditText CampTime;
-    private EditText CampExtra;
-    private EditText CampCost;
+    private EditText editText_CampName;
+    private EditText editText_CampAddress;
+    private EditText editText_CampPhone;
+    private EditText editText_CampKakao;
+    private EditText editText_AccountNum;
+    private EditText editText_CampTime;
+    private EditText editText_CampExtra;
+    private EditText editText_CampCost;
     UserData userData = new UserData();
 
 
@@ -54,14 +54,14 @@ public class CampUploadActivity extends AppCompatActivity {
         userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
         userData.putAdmin(intent.getStringExtra("Host"));
 
-        CampName = (EditText)findViewById(R.id.editText_CampName);
-        CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
-        CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
-        CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
-        AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
-        CampTime = (EditText)findViewById(R.id.editText_CampTime);
-        CampCost = (EditText)findViewById(R.id.editText_CampCost);
-        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
+        editText_CampName = (EditText)findViewById(R.id.editText_CampName);
+        editText_CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
+        editText_CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
+        editText_CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
+        editText_AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
+        editText_CampTime = (EditText)findViewById(R.id.editText_CampTime);
+        editText_CampCost = (EditText)findViewById(R.id.editText_CampCost);
+        editText_CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
 
         image_addphoto = findViewById(R.id.image_addphoto);
         image_addphoto.setOnClickListener(new View.OnClickListener() {
@@ -127,14 +127,14 @@ public class CampUploadActivity extends AppCompatActivity {
     }
 
     public void onClick_upload_camp(View view){
-        String campName = CampName.getText().toString();
-        String campAddress = CampAddress.getText().toString();
-        String campPhone = CampPhone.getText().toString();
-        String campKakao = CampKakao.getText().toString();
-        String accountNum = AccountNum.getText().toString();
-        String campTime = CampTime.getText().toString();
-        String campCost = CampCost.getText().toString();
-        String campExtra = CampExtra.getText().toString();
+        String campName = editText_CampName.getText().toString();
+        String campAddress = editText_CampAddress.getText().toString();
+        String campPhone = editText_CampPhone.getText().toString();
+        String campKakao = editText_CampKakao.getText().toString();
+        String accountNum = editText_AccountNum.getText().toString();
+        String campTime = editText_CampTime.getText().toString();
+        String campCost = editText_CampCost.getText().toString();
+        String campExtra = editText_CampExtra.getText().toString();
 
         CampUploadControl task = new CampUploadControl();
         //InsertDataControl task = new InsertDataControl();

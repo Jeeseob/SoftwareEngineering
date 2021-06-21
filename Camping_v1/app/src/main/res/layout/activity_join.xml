@@ -101,6 +101,7 @@
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
         android:text="중복"
+        android:onClick="onClick_join_id_check"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText_join_id"
         app:layout_constraintEnd_toEndOf="parent" />
 

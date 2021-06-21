@@ -160,17 +160,20 @@
                 android:layout_height="wrap_content"
                 android:text="정보 수정"
                 android:id="@+id/button_edit_userinfo"
+                android:onClick="onClick_edit_userinfo"
                 android:layout_marginRight="40dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="예약 관리"
                 android:id="@+id/button_reserve_manage"
+                android:onClick="onClick_reserve_manage"
                 android:layout_marginRight="40dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="회원 탈퇴"
+                android:onClick="onClick_drop_user"
                 android:id="@+id/button_drop_user"/>
         </LinearLayout>
 

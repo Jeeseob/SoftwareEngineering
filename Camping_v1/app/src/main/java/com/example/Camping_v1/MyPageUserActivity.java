@@ -5,23 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class MyPageHostActivity extends AppCompatActivity {
-//캠핑장 관리자 마이페이지
 
+public class MyPageUserActivity extends AppCompatActivity {
+    UserData userData = new UserData();
+    //사용자의 마이페이지
     TextView UserPassword;
     TextView UserId;
     TextView UserName;
     TextView UserPhoneNum;
     TextView UserEmail;
-    UserData userData = new UserData();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_page_host);
+        setContentView(R.layout.activity_my_page);
         Intent intent = getIntent();
         userData.putUserId(intent.getStringExtra("UserId"));
         userData.putUserPassword(intent.getStringExtra("UserPwd"));
@@ -47,7 +45,7 @@ public class MyPageHostActivity extends AppCompatActivity {
     }
 
     public void onClick_edit_userinfo(View view){
-        Intent intent = new Intent(MyPageHostActivity.this, MyPageEditActivity.class);
+        Intent intent = new Intent(MyPageUserActivity.this, MyPageEditActivity.class);
         intent.putExtra( "UserId", userData.getUserId());
         intent.putExtra( "UserPwd", userData.getUserPassword());
         intent.putExtra( "UserName", userData.getUserName());
@@ -58,8 +56,8 @@ public class MyPageHostActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClick_reserve_manage(View view){
-        Intent intent = new Intent(MyPageHostActivity.this, ReserveManageActivity.class);
+    public void onClick_reserve_lookup(View view){
+        Intent intent = new Intent(MyPageUserActivity.this, ReserveLookupActivity.class);
         intent.putExtra( "UserId", userData.getUserId());
         intent.putExtra( "UserPwd", userData.getUserPassword());
         intent.putExtra( "UserName", userData.getUserName());
@@ -71,7 +69,7 @@ public class MyPageHostActivity extends AppCompatActivity {
     }
 
     public void onClick_drop_user(View view){
-        Intent intent = new Intent(MyPageHostActivity.this, DropUserActivity.class);
+        Intent intent = new Intent(MyPageUserActivity.this, DropUserActivity.class);
         intent.putExtra( "UserId", userData.getUserId());
         intent.putExtra( "UserPwd", userData.getUserPassword());
         intent.putExtra( "UserName", userData.getUserName());

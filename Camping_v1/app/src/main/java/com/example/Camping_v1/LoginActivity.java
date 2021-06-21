@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,8 +18,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 //로그인 화면
-    private EditText login_id, login_password;
-    private Button button_login, button_join, button_id_find, button_pw_find;
+    private EditText editText_login_id, editText_login_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         ab.setTitle("로그인");
         ab.setDisplayShowCustomEnabled(true);
 
-        login_id = findViewById( R.id.editText_login_id );
-        login_password = findViewById( R.id.editText_login_password );
+        editText_login_id = findViewById( R.id.editText_login_id );
+        editText_login_password = findViewById( R.id.editText_login_password );
 
     }
 
@@ -47,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClick_login(View view){
-        String UserId = login_id.getText().toString();
-        String UserPwd = login_password.getText().toString();
+        String UserId = editText_login_id.getText().toString();
+        String UserPwd = editText_login_password.getText().toString();
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override

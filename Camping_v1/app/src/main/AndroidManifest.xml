@@ -24,7 +24,7 @@
         <activity android:name=".FindIdActivity" />
         <activity android:name=".CampListActivity" />
         <activity android:name=".MyPageHostActivity" />
-        <activity android:name=".MyPageActivity" />
+        <activity android:name=".MyPageUserActivity" />
         <activity android:name=".CampUploadActivity" />
         <activity android:name=".CampInformationHostActivity" />
         <activity android:name=".CampInformationUserActivity" />

@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -71,5 +72,10 @@ public class FindPwActivity extends AppCompatActivity {
         //알림매니저에게 알림(Notify) 요청
         notificationManager.notify(1, notification);
 
+    }
+
+    public void onClick_go_login(View view){
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        startActivity(loginIntent);
     }
 }

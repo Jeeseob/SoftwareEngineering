@@ -114,8 +114,6 @@ public class CampListActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(CampListActivity.this);
         queue.add(campRequest);
 
-//        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.camping1),
-//                "campTest", "sangsang");
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.camping8),
                 "testCamp", "sang");
 

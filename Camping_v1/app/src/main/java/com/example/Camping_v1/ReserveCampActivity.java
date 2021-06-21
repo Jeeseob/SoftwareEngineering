@@ -15,9 +15,8 @@ public class ReserveCampActivity extends AppCompatActivity {
     private static String reservation = "/reservationDataInsert.php";
 
     private static final int REQUEST_CODE = 21;
-    Button button_reserve_complete;
     TextView CampName, CampCost;
-    EditText Date, CampExtra;
+    EditText editText_date, editText_campExtraUse;
     CampUploadData campData = new CampUploadData();
     UserData userData = new UserData();
     ReservationData reservationData = new ReservationData();
@@ -46,8 +45,8 @@ public class ReserveCampActivity extends AppCompatActivity {
         userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
         userData.putAdmin(intent.getStringExtra("Host"));
 
-        Date = (EditText)findViewById(R.id.editText_date);
-        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
+        editText_date = (EditText)findViewById(R.id.editText_date);
+        editText_campExtraUse = (EditText)findViewById(R.id.editText_CampExtra);
 
         CampName = (TextView)findViewById(R.id.CampName);
         CampName.setText(campData.getCampName());
@@ -56,8 +55,8 @@ public class ReserveCampActivity extends AppCompatActivity {
     }
 
     public void onClick_reserve_complete(View view){
-        String date = Date.getText().toString();
-        String campExtra = CampExtra.getText().toString();
+        String date = editText_date.getText().toString();
+        String campExtra = editText_campExtraUse.getText().toString();
 
         System.out.println("유저 네임: "+userData.getUserName());
         System.out.println("액티비티 보내짐 "+ userData.getUserNum() + userData.getUserName()+  campData.getCampNum()+  campData.getHostNum() +campData.getCampPhone()+  userData.getUserPhoneNum() + campData.getCampName()+  date+ campData.getCampAddress()+  campData.getAccountNum()+  campExtra+campData.getCampCost()+ campData.getCampKakao());

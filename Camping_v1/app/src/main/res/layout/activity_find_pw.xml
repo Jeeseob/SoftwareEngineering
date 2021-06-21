@@ -68,6 +68,7 @@
         android:id="@+id/button_login"
         android:layout_marginBottom="100dp"
         android:text="로그인"
+        android:onClick="onClick_go_login"
         app:layout_constraintBaseline_toBaselineOf="@id/send_find_pw"
         app:layout_constraintEnd_toEndOf="@id/editText_find_pw_phone" />
 

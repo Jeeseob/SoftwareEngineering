@@ -36,6 +36,7 @@
         android:id="@+id/button_complete_dropuser"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:onClick="onClick_complete_dropuser"
         style="@style/defaultButton"/>
 
 

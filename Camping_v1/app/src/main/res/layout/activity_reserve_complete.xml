@@ -224,27 +224,27 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp">
+                android:layout_height="103dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:ems="7"
                     android:layout_marginTop="12dp"
-                    android:text="캠핑장 계좌번호"/>
+                    android:ems="7"
+                    android:text="캠핑장 계좌번호"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/AccountNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginBottom="50dp"
                     android:ems="10"
                     android:hint="캠핑장 계좌 번호[은행]"
-                    android:layout_marginBottom="50dp"/>
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <Button
@@ -254,6 +254,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:text="확인"
+                android:onClick="onClick_ok"
                 android:layout_marginBottom="70dp"/>
 
         </LinearLayout>
