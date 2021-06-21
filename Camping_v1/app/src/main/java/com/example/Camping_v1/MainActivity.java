@@ -34,16 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //ab.setTitle("ActionBar Title by setTitle()");
         //ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowCustomEnabled(true);
-
-        go_host_camp = findViewById(R.id.go_host_camp);
-        go_host_camp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CampInformationHostActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         imageView = findViewById(R.id.image_addphoto);
 
