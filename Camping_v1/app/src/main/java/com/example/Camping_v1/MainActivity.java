@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //ab.setTitle("ActionBar Title by setTitle()");
         //ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowCustomEnabled(true);
-        
+
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         imageView = findViewById(R.id.image_addphoto);
 

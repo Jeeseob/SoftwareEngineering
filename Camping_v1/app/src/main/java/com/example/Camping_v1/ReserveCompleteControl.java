@@ -10,7 +10,7 @@ import java.util.Map;
 public class ReserveCompleteControl extends StringRequest {
 
     //서버 URL 설정(php 파일 연동)
-    final static private String URL = "http://117.16.46.95:8080/getReservationData2.php";
+    final static private String URL = "http://117.16.46.95:8080/getReservationData.php";
     private Map<String, String> map;
 
     public ReserveCompleteControl(String num, Response.Listener<String> listener) {
