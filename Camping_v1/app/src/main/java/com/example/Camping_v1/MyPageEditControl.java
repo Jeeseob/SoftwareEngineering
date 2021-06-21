@@ -21,29 +21,19 @@ public class  MyPageEditControl extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         String userNum = (String) params[1];
-        String userName = (String) params[2];
-        String campNum = (String) params[3];
-        String hostNum = (String) params[4];
-        String hostPhoneNum = (String) params[5];
-        String userPhoneNum = (String) params[6];
-        String campName = (String) params[7];
-        String Date = (String) params[8];
-        String campAddress = (String) params[9];
-        String accountNum = (String) params[10];
-        String campExtraUse = (String) params[11];
-        String campCost = (String) params[12];
-        String Kakao = (String) params[13];
-
+        String userId = (String)params[2];
+        String userName = (String) params[3];
+        String userPassword = (String) params[4];
+        String userPhoneNum = (String) params[5];
+        String userEmail = (String) params[6];
 
         String serverURL = (String) params[0];
 
 
         //host num 추가해야함
-        String postParameters = "usernum=" + userNum + "&username=" + userName + "&campnum=" +
-                campNum + "&hostnum=" + hostNum + "&hostphonenum=" + hostPhoneNum + "&userphonenum=" +
-                userPhoneNum + "&campname=" + campName + "&date=" + Date+ "&campaddress=" + campAddress+ "&accountnum=" +
-                accountNum+ "&campextrause=" + campExtraUse+ "&campcost="+ campCost +"&kakao="+ Kakao;
-
+        String postParameters = "usernum=" + userNum + "&userid=" + userId+"&username=" + userName + "&userpwd=" + userPassword +
+                "&userphonenum=" + userPhoneNum + "&useremail="+userEmail;
+        System.out.println(postParameters);
         try {
 
             URL url = new URL(serverURL);

@@ -62,23 +62,40 @@ public class MyPageEditActivity extends AppCompatActivity {
                     String UserPhoneNum = editText_UserPhoneNum.getText().toString();
                     String UserEmail = editText_UserEmail.getText().toString();
 
-
-                    //중요내용~~!! 수정해야됨!!!
-                    ReserveCampControl task = new ReserveCampControl();
+                    MyPageEditControl task = new MyPageEditControl();
                     //InsertDataControl task = new InsertDataControl();
-                    task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),UserName, UserPassword,UserPhoneNum,UserEmail);
+                    task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
 
 
                     Intent intent = new Intent(MyPageEditActivity.this, MyPageActivity.class);
+                    intent.putExtra( "UserId", userData.getUserId());
+                    intent.putExtra( "UserPwd", UserPassword);
+                    intent.putExtra( "UserName", UserName);
+                    intent.putExtra( "UserNum", userData.getUserNum());
+                    intent.putExtra( "UserEmail", UserEmail);
+                    intent.putExtra( "UserPhoneNum", UserPhoneNum);
+                    intent.putExtra( "Host", userData.getHost());
                     startActivity(intent);
                 }
                 //관리자
                 else{
+
                     String UserName = editText_UserName.getText().toString();
                     String UserPassword = editText_UserPassword.getText().toString();
                     String UserPhoneNum = editText_UserPhoneNum.getText().toString();
                     String UserEmail = editText_UserEmail.getText().toString();
+                    MyPageEditControl task = new MyPageEditControl();
+                    //InsertDataControl task = new InsertDataControl();
+                    task.execute("http://" + IP_ADDRESS + reservation, userData.getUserNum(),userData.getUserId(),UserName, UserPassword,UserPhoneNum,UserEmail);
+
                     Intent intent = new Intent(MyPageEditActivity.this, MyPageHostActivity.class);
+                    intent.putExtra( "UserId", userData.getUserId());
+                    intent.putExtra( "UserPwd", UserPassword);
+                    intent.putExtra( "UserName", UserName);
+                    intent.putExtra( "UserNum", userData.getUserNum());
+                    intent.putExtra( "UserEmail", UserEmail);
+                    intent.putExtra( "UserPhoneNum", UserPhoneNum);
+                    intent.putExtra( "Host", userData.getHost());
                     startActivity(intent);
                 }
             }
