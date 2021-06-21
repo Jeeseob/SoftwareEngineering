@@ -133,6 +133,7 @@ class CampUploadData{
     public void putCampTime(String CTime){CampTime = CTime;}
     public void putCampExtra(String CExtra){CampExtra = CExtra;}
     public void putCampCost(String CCost){CampCost = CCost;}
+    public void putImagePath(String imagepath){Imagepath = imagepath;}
 
     //get
     public String getCampNum(){

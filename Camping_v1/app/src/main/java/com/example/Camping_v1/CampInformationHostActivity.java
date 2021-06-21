@@ -18,8 +18,6 @@ import org.json.JSONObject;
 
 public class CampInformationHostActivity extends AppCompatActivity {
 //캠핑장 관리자가 업로드한 캠핑장 정보 볼 수 있는 곳
-
-    private Button button_edit_camp;
     //사용자가 검색해서 나온 캠핑장 상세 정보
     ImageView imageView;
     TextView CampName;
@@ -30,11 +28,20 @@ public class CampInformationHostActivity extends AppCompatActivity {
     TextView CampTime;
     TextView CampExtra;
     TextView CampCost;
+    CampUploadData campData = new CampUploadData();
+    UserData userData = new UserData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_information_host);
+
+        Intent intent = getIntent();
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhone"));
+        userData.putAdmin(intent.getStringExtra("Host"));
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -45,8 +52,6 @@ public class CampInformationHostActivity extends AppCompatActivity {
                     boolean success = jsonObject.getBoolean("success");
 
                     if (success) {
-
-                        CampUploadData campData = new CampUploadData();
                         campData.putCampUploadData(jsonObject);
 
 
@@ -89,13 +94,24 @@ public class CampInformationHostActivity extends AppCompatActivity {
     }
 
     public void onClick_edit_camp(View view){
+        System.out.println("뿅: "+campData.getCampNum());
         Intent intent = new Intent(CampInformationHostActivity.this, CampInformationEditActivity.class);
-/*                intent.putExtra( "CampName", campData.getCampName());
-                intent.putExtra( "CampAddress", CampUploadData.getCampAddress());
-                intent.putExtra( "UserEmail", CampUploadData.getUserEmail());
-                intent.putExtra( "UserPhoneNum", CampUploadData.getUserPhoneNum());
-                intent.putExtra( "Host", CampUploadData.getHost());*/
-
+        intent.putExtra( "UserNum", userData.getUserNum());
+        intent.putExtra( "UserName", userData.getUserName());
+        intent.putExtra( "UserEmail", userData.getUserEmail());
+        intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+        intent.putExtra( "Host", userData.getHost());
+        intent.putExtra("CampNum", campData.getCampNum());
+        intent.putExtra("HostNum", campData.getHostNum());
+        intent.putExtra("CampName", campData.getCampName());
+        intent.putExtra("CampAddress", campData.getCampAddress());
+        intent.putExtra("CampPhone", campData.getCampPhone());
+        intent.putExtra("CampKakao", campData.getCampKakao());
+        intent.putExtra("AccountNum", campData.getAccountNum());
+        intent.putExtra("CampTime", campData.getCampTime());
+        intent.putExtra("CampExtra", campData.getCampExtra());
+        intent.putExtra("CampCost", campData.getCampCost());
+        intent.putExtra("imagepath", campData.getImagepath());
         startActivity( intent );
     }
 }

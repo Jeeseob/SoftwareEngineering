@@ -43,6 +43,8 @@ public class MyPageActivity extends AppCompatActivity {
         UserPhoneNum.setText(userData.getUserPhoneNum());
         UserEmail = (TextView)findViewById(R.id.UserEmail);
         UserEmail.setText(userData.getUserEmail());
+
+
         button_edit_userinfo = findViewById(R.id.button_edit_userinfo);
         button_edit_userinfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +57,6 @@ public class MyPageActivity extends AppCompatActivity {
                 intent.putExtra( "UserEmail", userData.getUserEmail());
                 intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
                 intent.putExtra( "Host", userData.getHost());
-                startActivity(intent);
                 startActivity(intent);
             }
         });

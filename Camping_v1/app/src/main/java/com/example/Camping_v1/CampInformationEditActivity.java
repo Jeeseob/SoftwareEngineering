@@ -34,7 +34,10 @@ public class CampInformationEditActivity extends AppCompatActivity {
     private ImageView image_addphoto;
     private Button button_edit_complete_camp;
     private Bitmap bitmapimg;
+    ImageView imageView;
 
+    CampUploadData campData = new CampUploadData();
+    UserData userData = new UserData();
     private EditText CampName;
     private EditText CampAddress;
     private EditText CampPhone;
@@ -43,11 +46,52 @@ public class CampInformationEditActivity extends AppCompatActivity {
     private EditText CampTime;
     private EditText CampExtra;
     private EditText CampCost;
+    private static String reservation = "/campEdit.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camp_information_edit);
+
+        Intent intent = getIntent();
+        campData.putImagePath(intent.getStringExtra("imagepath"));
+        campData.putCampName(intent.getStringExtra("CampName"));
+        campData.putCampNum(intent.getStringExtra("CampNum"));
+        campData.putHostNum(intent.getStringExtra("HostNum"));
+        campData.putCampAddress(intent.getStringExtra("CampAddress"));
+        campData.putCampPhone(intent.getStringExtra("CampPhone"));
+        campData.putCampKakao(intent.getStringExtra("CampKakao"));
+        campData.putAccountNum(intent.getStringExtra("AccountNum"));
+        campData.putCampTime(intent.getStringExtra("CampTime"));
+        campData.putCampExtra(intent.getStringExtra("CampExtra"));
+        campData.putCampCost(intent.getStringExtra("CampCost"));
+        userData.putUserId(intent.getStringExtra("UserId"));
+        userData.putUserPassword(intent.getStringExtra("UserPwd"));
+        userData.putUserNum(intent.getStringExtra("UserNum"));
+        userData.putUserName(intent.getStringExtra("UserName"));
+        userData.putUserEmail(intent.getStringExtra("UserEmail"));
+        userData.putUserPhoneNum(intent.getStringExtra("UserPhoneNum"));
+        userData.putAdmin(intent.getStringExtra("Host"));
+
+
+        imageView = findViewById(R.id.image_addphoto);
+        sendImageRequest(imageView, "http://117.16.46.95:8080/"+campData.getImagepath());
+        CampName = (EditText)findViewById(R.id.editText_CampName);
+        CampName.setText(campData.getCampName());
+        CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
+        CampAddress.setText(campData.getCampAddress());
+        CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
+        CampPhone.setText(campData.getCampPhone());
+        CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
+        CampKakao.setText(campData.getCampKakao());
+        AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
+        AccountNum.setText(campData.getAccountNum());
+        CampTime = (EditText)findViewById(R.id.editText_CampTime);
+        CampTime.setText(campData.getCampTime());
+        CampCost = (EditText)findViewById(R.id.editText_CampCost);
+        CampCost.setText(campData.getCampCost());
+        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
+        CampExtra.setText(campData.getCampExtra());
 
         image_addphoto = findViewById(R.id.image_addphoto);
         image_addphoto.setOnClickListener(new View.OnClickListener() {
@@ -59,84 +103,44 @@ public class CampInformationEditActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
-        com.android.volley.Response.Listener<String> responseListener = new com.android.volley.Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    System.out.println(response);
-                    JSONObject jsonObject = new JSONObject(response);
-                    boolean success = jsonObject.getBoolean("success");
-
-                    if (success) {
-
-                        CampUploadData campData = new CampUploadData();
-                        campData.putCampUploadData(jsonObject);
-
-
-                        System.out.print(campData.getCampNum());
-                        //이미지 로드
-                        sendImageRequest(image_addphoto, "http://117.16.46.95:8080/"+campData.getImagepath());
-                        CampName = (EditText)findViewById(R.id.editText_CampName);
-                        CampName.setText(campData.getCampName());
-                        CampAddress = (EditText)findViewById(R.id.editText_CampAddress);
-                        CampAddress.setText(campData.getCampAddress());
-                        CampPhone = (EditText)findViewById(R.id.editText_CampPhone);
-                        CampPhone.setText(campData.getCampPhone());
-                        CampKakao = (EditText)findViewById(R.id.editText_CampKakao);
-                        CampKakao.setText(campData.getCampKakao());
-                        AccountNum = (EditText)findViewById(R.id.editText_AccountNum);
-                        AccountNum.setText(campData.getAccountNum());
-                        CampTime = (EditText)findViewById(R.id.editText_CampTime);
-                        CampTime.setText(campData.getCampTime());
-                        CampCost = (EditText)findViewById(R.id.editText_CampCost);
-                        CampCost.setText(campData.getCampCost());
-                        CampExtra = (EditText)findViewById(R.id.editText_CampExtra);
-                        CampExtra.setText(campData.getCampExtra());
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        CampInformationControl campRequest = new CampInformationControl("2", responseListener);
-        RequestQueue queue = Volley.newRequestQueue(CampInformationEditActivity.this);
-        queue.add(campRequest);
     }
     public void sendImageRequest(ImageView imageView, String url) {
         ImageLoadControl task = new ImageLoadControl(url, imageView);
         task.execute();
     }
 
-    protected void uploadImage() {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmapimg.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream);
-        byte[] imageInByte = byteArrayOutputStream.toByteArray();
-
-        String encodedImage = Base64.encodeToString(imageInByte, Base64.DEFAULT);
-        //Toast.makeText(this, encodedImgae,Toast.LENGTH_SHORT).show();
-        Call<ResponsePOJO> call = Client.getInstancce().getApi().uploadImage(encodedImage);
-        call.enqueue(new Callback<ResponsePOJO>() {
-            @Override
-            public void onResponse(Call<ResponsePOJO> call, Response<ResponsePOJO> response) {
-                Toast.makeText(CampInformationEditActivity.this, response.body().getRemarks(), Toast.LENGTH_SHORT).show();
-
-                if (response.body().isStatus()) {
-
-                } else {
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponsePOJO> call, Throwable t) {
-                Toast.makeText(CampInformationEditActivity.this, "Network Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     public void onClick_edit_complete_camp(View view){
+
+        String campname = CampName.getText().toString();
+        String campaddress = CampAddress.getText().toString();
+        String campphone = CampPhone.getText().toString();
+        String campkakao = CampKakao.getText().toString();
+        String accountnum = AccountNum.getText().toString();
+        String camptime = CampTime.getText().toString();
+
+        String campcost = CampCost.getText().toString();
+        String campextra = CampExtra.getText().toString();
+        CampInformationEditControl task = new CampInformationEditControl();
+        task.execute("http://" + IP_ADDRESS + reservation, campData.getCampNum(),campname,campaddress, campphone,campkakao,accountnum,camptime,campcost,campextra);
+
         Intent intent = new Intent(CampInformationEditActivity.this, CampInformationHostActivity.class);
+        intent.putExtra("CampNum", campData.getCampNum());
+        intent.putExtra("HostNum", campData.getHostNum());
+        intent.putExtra("CampName", campname);
+        intent.putExtra("CampAddress", campaddress);
+        intent.putExtra("CampPhone", campphone);
+        intent.putExtra("CampKakao", campkakao);
+        intent.putExtra("AccountNum", accountnum);
+        intent.putExtra("CampTime", camptime);
+        intent.putExtra("CampExtra", campextra);
+        intent.putExtra("CampCost", campcost);
+        intent.putExtra( "UserNum", userData.getUserNum());
+        intent.putExtra( "UserName", userData.getUserName());
+        intent.putExtra( "UserId", userData.getUserId());
+        intent.putExtra( "UserPwd", userData.getUserPassword());
+        intent.putExtra( "UserEmail", userData.getUserEmail());
+        intent.putExtra( "UserPhoneNum", userData.getUserPhoneNum());
+        intent.putExtra( "Host", userData.getHost());
         startActivity(intent);
     }
 }
