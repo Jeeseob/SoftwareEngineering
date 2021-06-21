@@ -7,6 +7,8 @@ Camping ++
 
 ### 중간고사 대체 발표   
 https://www.youtube.com/watch?v=Vxqq__nhPjY
+### 2021-1 소프트웨어공학 최종 발표   
+https://www.youtube.com/watch?v=0ptGhteo-0w
 
 ### 프로젝트 개요   
 상명대학교 컴퓨터과학과 2021학년도 1학기 소프트웨어 공학 2분반 실습과제입니다.      
